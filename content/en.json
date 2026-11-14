@@ -1,0 +1,224 @@
+{
+  "lang": "en",
+  "meta": {
+    "title": "Knotide Bio | Bioactive small proteins for animal health, nutrition and welfare",
+    "description": "Knotide Bio designs and develops biotechnology-based bioactive small proteins for animal health, nutrition and welfare, across aquaculture, poultry, swine, ruminants and pets.",
+    "ogTitle": "Knotide Bio | Bioactive small proteins for animal health",
+    "ogDescription": "Bioactive small proteins engineered for animal health, nutrition and welfare, across aquaculture, poultry, swine, ruminants and pets."
+  },
+  "nav": {
+    "platform": "Platform",
+    "applications": "Applications",
+    "biosensing": "Biosensing",
+    "services": "Services",
+    "team": "Team",
+    "funding": "Funding",
+    "contact": "Contact",
+    "cta": "Talk to us",
+    "menu": "Menu",
+    "close": "Close",
+    "switchLabel": "Ver em português",
+    "skip": "Skip to content"
+  },
+  "hero": {
+    "eyebrow": "Biotechnology for animal health",
+    "title": "Bioactive proteins designed to protect the animals that feed the world",
+    "sub": "Knotide Bio designs, develops and advances highly stable bioactive small proteins for animal health, nutrition and welfare. To do so, we combine computational design, experimental discovery and cost-efficient production through precision fermentation, always with the species that anchor global food production in mind: aquaculture, poultry, swine, ruminants and pets.",
+    "ctaPrimary": "Talk to the team",
+    "ctaSecondary": "Explore the platform"
+  },
+  "stats": [
+    { "num": "Hundreds", "label": "of small protein candidates already designed for the platform's first application, in shrimp aquaculture" },
+    { "num": "Active applicant", "label": "Portugal 2030 · COMPETE · Horizon Europe" },
+    { "num": "Porto", "label": "Headquartered in Portugal and built for European and global markets" }
+  ],
+  "photoBand": {
+    "alt": "Researcher handling a sample in the laboratory",
+    "caption": "Real biology, engineered with precision."
+  },
+  "challenge": {
+    "label": "Starting point",
+    "title": "A well-characterised problem in aquaculture, under urgent regulatory pressure",
+    "p1": "Shrimp and salmon aquaculture face pathogens for which the available solutions are becoming increasingly ineffective, costly or prone to resistance. <em>Vibrio parahaemolyticus</em>, the causative agent of AHPND (Acute Hepatopancreatic Necrosis Disease), can collapse an entire shrimp pond within 30 days of stocking, and there is still no dominant biotechnological alternative to antibiotics. Sea lice (<em>Lepeophtheirus salmonis</em> and <em>Caligus rogercresseyi</em>), which affect salmon aquaculture, pose a comparable challenge and are the platform's next application.",
+    "p2": "This is where Knotide Bio starts. Our aim is to show, on a real and measurable problem, how a well-engineered biomolecule can replace approaches that have been worn down by resistance and regulatory rejection.",
+    "calloutTitle": "An industry under regulatory and economic pressure",
+    "callout": "Since 2010, AHPND has cost the global shrimp industry more than $43 billion, with mortality reaching up to 100% within 30-35 days of an outbreak. At the same time, EU and US import rejections over antibiotic residues, together with the EU's Farm to Fork target of -50% antimicrobial use by 2030, are driving active demand for residue-free alternatives.",
+    "imageAlt": "Indoor shrimp aquaculture facility"
+  },
+  "platform": {
+    "label": "Platform",
+    "title": "From bioactive small proteins to product, with scientific rigour at every stage",
+    "desc": "Knotide Bio explores families of bioactive small proteins as the starting point for designing biotechnological solutions aimed at specific targets in animal health.",
+    "steps": [
+      { "title": "Discovery", "text": "Bioprospecting and selection of bioactive proteins with potential activity against identified targets." },
+      { "title": "Characterisation", "text": "Study of the structure, function and mechanism of action of the selected proteins." },
+      { "title": "Validation", "text": "Laboratory assays and analyses that confirm activity, selectivity and safety." },
+      { "title": "Application", "text": "Formulation and integration of the validated bioactive proteins into solutions for animal health, nutrition and welfare." }
+    ],
+    "designTitle": "Integrated molecular discovery",
+    "designText": "Knotide Bio combines AI-guided molecular design with proprietary discovery libraries to develop small, highly stable bioactive proteins. These complementary technologies can be used on their own or together, which makes the discovery, engineering and optimisation of molecules tailored to specific biological applications more efficient.",
+    "productionTitle": "Scalable and cost-efficient production",
+    "productionP1": "Our bioactive proteins are designed not only for biological performance but also for efficient production through precision fermentation.",
+    "productionP2": "This manufacturing approach is intended to enable scalable, consistent and cost-effective production and, in turn, to support applications where price is critical, such as aquaculture and livestock health."
+  },
+  "viewer": {
+    "aria": "Interactive rotating 3D model of a designed protein bound to a specific site on a toxin complex",
+    "toxin": "Toxin",
+    "protein": "Designed protein",
+    "pause": "Pause rotation",
+    "resume": "Resume rotation",
+    "reset": "Reset view",
+    "zoomIn": "Zoom in",
+    "zoomOut": "Zoom out",
+    "caption": "Illustrative structural rendering, conceptual and not experimental data. Drag to rotate."
+  },
+  "dnaBand": {
+    "alt": "Molecular research: antibody and DNA engineering",
+    "caption": "Engineering biology at the molecular level."
+  },
+  "applications": {
+    "label": "Applications",
+    "title": "Three complementary pillars in animal production",
+    "pillars": [
+      { "title": "Animal health", "text": "Small proteins directed at parasites and pathogens relevant to animal production, offering an alternative to resistance-prone solutions." },
+      { "title": "Animal nutrition", "text": "Bioactive proteins applied in nutritional solutions that support animal performance and gut health." },
+      { "title": "Animal welfare", "text": "Solutions that reduce the need for intensive handling and treatment, with a direct benefit for animal welfare." }
+    ],
+    "speciesLabel": "Species the platform is built to serve",
+    "species": [
+      { "name": "Aquaculture", "alt": "Aquaculture sea cages", "img": "aquaculture-sea-cages" },
+      { "name": "Poultry", "alt": "Poultry on a farm", "img": "poultry-on-a-farm" },
+      { "name": "Swine", "alt": "Piglet on a farm", "img": "piglet-on-a-farm" },
+      { "name": "Ruminants", "alt": "Cattle on pasture", "img": "cattle-on-pasture" },
+      { "name": "Pets", "alt": "Dog, a companion animal", "img": "dog-a-companion-animal" }
+    ],
+    "exampleTag": "Illustrative example",
+    "exampleP": "In our lead application, a Knotide Bio protein is designed to neutralise the toxin that a pathogen needs to damage its host, instead of relying on broad antimicrobial activity. We are extending this approach to other pathogens, targets and species within the platform.",
+    "exampleNote": "Knotide Bio's first application case is <em>AHPND in shrimp aquaculture</em>, chosen for its regulatory urgency, its market size and a well-characterised molecular target. Sea lice in salmon aquaculture is the platform's second application, and it shares the same core mechanism and the administration routes already used by the industry.",
+    "figA": "A. PirAB binds the Lv-APN1 receptor",
+    "figAAlt": "Diagram A: the PirA/PirB toxin complex binding the Lv-APN1 receptor at the cell membrane.",
+    "figB": "B. The designed protein blocker prevents receptor binding",
+    "figBAlt": "Diagram B: the designed protein blocker occupying the PirB binding site, preventing the toxin complex from reaching the Lv-APN1 receptor, with a close-up inset of the blocking interaction.",
+    "figCaption": "Mechanism of action: the designed protein blocker prevents the toxin complex from binding the cell-surface receptor."
+  },
+  "biosensing": {
+    "label": "Biosensing",
+    "title": "Biosensing and molecular detection",
+    "intro": "The same bioactive small proteins engineered to recognise specific biological targets, such as toxins, bacteria, enzymes, fungi and viruses, can also act as the molecular recognition element in biosensing and rapid-detection formats.",
+    "cards": [
+      { "title": "Molecular recognition", "text": "Designed proteins that bind a defined target with high selectivity, serving as the sensing element in detection assays." },
+      { "title": "Stability by design", "text": "Highly stable proteins suited to the demanding conditions of field and production environments." },
+      { "title": "Rapid detection", "text": "A foundation for fast, protein-based detection of pathogens and biomarkers relevant to animal production." },
+      { "title": "Emerging application", "text": "An exploratory direction of the Knotide Bio platform, which we are advancing with the same scientific rigour as our animal-health programmes." }
+    ]
+  },
+  "services": {
+    "label": "Services",
+    "title": "Beyond in-house development, in service of third parties",
+    "desc": "Knotide Bio's activity is not limited to developing its own platform. The company also provides specialised services to other biotechnology and life sciences organisations.",
+    "items": [
+      { "title": "Research and development", "text": "Research, development and commercialisation of biotechnology-based biomolecules, namely bioactive proteins." },
+      { "title": "Production", "text": "Production of biomolecules, either directly or through subcontracting, depending on project stage and scale." },
+      { "title": "Scientific and technical consultancy", "text": "Scientific, technical and technological consultancy in biotechnology and life sciences for third-party organisations." },
+      { "title": "Laboratory testing and validation", "text": "Technical and laboratory assays, analyses and validations for the characterisation, development and quality control of biomolecules and biotechnology products." }
+    ]
+  },
+  "team": {
+    "label": "Team",
+    "title": "A multidisciplinary team built on deep scientific expertise and industrial experience",
+    "desc": "Knotide Bio was founded by three scientists with complementary academic and industry backgrounds in molecular biology, biochemical engineering and biotechnology.",
+    "stats": [
+      { "num": "35+", "label": "years in antibody-like scaffold discovery" },
+      { "num": "45+", "label": "years of combined industry and R&D experience" },
+      { "num": "€40M+", "label": "in managed R&D funding" }
+    ],
+    "expertiseLabel": "Our expertise",
+    "expertise": [
+      { "title": "Biomolecule engineering", "items": ["Bioactive molecules", "Molecular engineering", "Protein and peptide science", "Structure-function studies"] },
+      { "title": "Discovery and development", "items": ["Molecular discovery", "Engineering and optimisation", "Functional evaluation", "R&D strategy"] },
+      { "title": "Translational R&D", "items": ["Characterisation and validation", "Formulation and development", "Technology development", "Industrial implementation"] },
+      { "title": "Innovation and partnerships", "items": ["Industrial R&D", "Academic collaborations", "National and EU funding", "Technology commercialisation"] }
+    ],
+    "p1": "Knotide Bio brings together a multidisciplinary founding team whose expertise spans molecular microbiology, biomolecule engineering, biochemical engineering and industrial innovation. The team has experience across the full R&D pathway, from scientific concept and early discovery through development and validation, all the way to industrial implementation.",
+    "p2": "Together, the founders have led and managed R&D programmes across national and European funding instruments, including FCT, Horizon Europe and COMPETE2020/2030. They also bring direct experience in translating research into industrial innovation and commercial outcomes.",
+    "p3": "The founding team maintains strong links with academic and research institutions, including the Universities of Porto, Coimbra and Algarve and their research and innovation ecosystems, as well as collaborations with international academic and industrial organisations. At Knotide Bio, these complementary capabilities converge on a common objective: to engineer and develop bioactive molecules with the potential to deliver next-generation solutions for disease prevention and treatment."
+  },
+  "funding": {
+    "label": "Funding and partnerships",
+    "title": "An active applicant for national and European innovation funding",
+    "text": "Knotide Bio is structured to compete for public research and innovation funding and is currently seeking support through programmes such as Portugal 2030, COMPETE, MAR2030 and Horizon Europe. We therefore welcome academic groups, industry players and consortium partners interested in joint applications and co-funded research.",
+    "list": ["Portugal 2030 / COMPETE", "MAR2030", "Horizon Europe", "Consortium and co-funded R&D"]
+  },
+  "contact": {
+    "label": "Contact",
+    "title": "Let's talk about your project",
+    "text": "Researchers, animal production companies and prospective partners are welcome to get in touch, whether to explore a collaboration, a licensing opportunity or Knotide Bio's laboratory services.",
+    "emailLabel": "Email",
+    "officeLabel": "Registered office",
+    "mapTitle": "Map showing the Knotide Bio registered office in Vila Nova de Gaia",
+    "mapLoad": "Show map",
+    "mapNote": "The map is provided by Google Maps and only loads if you choose to display it. Google may then set its own cookies.",
+    "mapOpen": "Open in Google Maps"
+  },
+  "form": {
+    "name": "Name",
+    "organisation": "Organisation",
+    "email": "Email",
+    "country": "Country",
+    "enquiryType": "Type of enquiry",
+    "areas": "Areas of interest",
+    "subject": "Subject",
+    "message": "Message",
+    "optional": "optional",
+    "select": "Select",
+    "consent": "I have read the <a href=\"{privacy}\">Privacy Policy</a> and agree to the processing of my data in order to answer this enquiry.",
+    "submit": "Send message",
+    "sending": "Sending...",
+    "success": "Thank you. Your message has been sent and we will get back to you as soon as possible.",
+    "error": "We could not send your message. Please try again or write to us at info@knotidebio.pt.",
+    "errRequired": "Please fill in this field.",
+    "errEmail": "Please enter a valid email address.",
+    "errConsent": "Please accept the Privacy Policy so that we can reply.",
+    "errSummary": "Please check the highlighted fields.",
+    "countries": ["Portugal", "Spain", "France", "Germany", "Italy", "Netherlands", "Belgium", "Ireland", "Denmark", "Norway", "United Kingdom", "Other European country", "Brazil", "Chile", "Ecuador", "Mexico", "United States", "Canada", "India", "Vietnam", "Thailand", "Indonesia", "China", "Other"],
+    "enquiryTypes": ["Partnership or collaboration", "Licensing", "Laboratory services", "Research and development", "Funding or consortium", "Media", "Other"],
+    "areaOptions": ["Aquaculture", "Poultry", "Swine", "Ruminants", "Pets", "Biosensing", "Services"]
+  },
+  "footer": {
+    "rights": "All rights reserved.",
+    "privacy": "Privacy Policy"
+  },
+  "widgets": {
+    "whatsappLabel": "Chat on WhatsApp",
+    "whatsappMessage": "Hello Knotide Bio, I would like to find out more about your work.",
+    "chatOpen": "Questions?",
+    "chatTitle": "Knotide Bio assistant",
+    "chatIntro": "Hello. I can answer short questions about Knotide Bio using the information on this website. What would you like to know?",
+    "chatPlaceholder": "Write your question",
+    "chatSend": "Send",
+    "chatClose": "Close assistant",
+    "chatFallback": "I don't have a reliable answer to that on this website. The best option is to write to the team through the <a href=\"#contact\">contact form</a> or at <a href=\"mailto:info@knotidebio.pt\">info@knotidebio.pt</a>.",
+    "chatSuggestions": ["What does Knotide Bio do?", "What is AHPND?", "What services do you offer?", "How can I contact you?"],
+    "chatDisclaimer": "Automatic answers based only on the content of this website."
+  },
+  "privacyPage": {
+    "metaTitle": "Privacy Policy | Knotide Bio",
+    "metaDescription": "How Knotide Bio, Lda. collects, uses and protects personal data submitted through this website, in accordance with the GDPR and Portuguese Law no. 58/2019.",
+    "back": "Back to homepage",
+    "title": "Privacy Policy",
+    "updated": "Last updated: 14 November 2026",
+    "intro": "Knotide Bio, Lda. (\"Knotide Bio\", \"we\", \"us\") respects your privacy. This policy explains what personal data we collect through this website, why we collect it and what rights you have, in accordance with the General Data Protection Regulation (GDPR) and Portuguese Law no. 58/2019.",
+    "sections": [
+      { "title": "1. Who we are", "body": "<p>Knotide Bio, Lda. · NIPC 519634713<br>Avenida da República, n.º 1333, 1.º traseiras, 4430-204 Vila Nova de Gaia, Portugal<br>Contact: <a href=\"mailto:info@knotidebio.pt\">info@knotidebio.pt</a></p><p>Knotide Bio is the data controller for the personal data described in this policy.</p>" },
+      { "title": "2. What data we collect", "body": "<ul><li><strong>Contact form:</strong> name, email address and the content of your message and, if you choose to provide them, your organisation, country, type of enquiry, areas of interest and subject.</li><li><strong>Website usage:</strong> aggregated, non-identifying statistics such as pages viewed, country-level location, device type and referring site. We use privacy-focused analytics that does not use cookies, does not use any device identifiers and cannot be used to identify an individual visitor.</li></ul>" },
+      { "title": "3. Why we process this data", "body": "<ul><li>To respond to enquiries submitted through the contact form, on the basis of our legitimate interest in operating this website and communicating with people who contact us and, where relevant, to take steps prior to entering into a business relationship.</li><li>To understand overall website usage and improve the site, on the basis of our legitimate interest. This data is aggregated and does not identify you.</li></ul>" },
+      { "title": "4. Who has access to your data", "body": "<p>Contact-form submissions are processed on our behalf by Formspree, Inc., which acts as our data processor and delivers submissions to our email. We do not sell, rent or share your personal data with third parties for marketing purposes.</p>" },
+      { "title": "5. International data transfers", "body": "<p>Formspree is based in the United States. Where your data is processed there, it is subject to the safeguards described in Formspree's own privacy policy, available at <a href=\"https://formspree.io/legal/privacy-policy/\" target=\"_blank\" rel=\"noopener\">formspree.io/legal/privacy-policy</a>.</p>" },
+      { "title": "6. How long we keep your data", "body": "<p>We keep contact-form submissions for as long as necessary to respond to your enquiry and for a reasonable period afterwards for our records and, in any case, no longer than 24 months, unless a longer period is required by law or to establish, exercise or defend legal claims.</p>" },
+      { "title": "7. Your rights", "body": "<p>Under the GDPR and Portuguese Law no. 58/2019, you have the right to access, correct or request erasure of your personal data, to object to or restrict our processing of it, and to request its portability. You may also lodge a complaint with the Comissão Nacional de Proteção de Dados (CNPD), the Portuguese supervisory authority, at <a href=\"https://www.cnpd.pt\" target=\"_blank\" rel=\"noopener\">www.cnpd.pt</a>.</p><p>To exercise any of these rights, contact us at <a href=\"mailto:info@knotidebio.pt\">info@knotidebio.pt</a>.</p>" },
+      { "title": "8. Cookies", "body": "<p>This website does not use cookies. Your language preference is stored only in your own browser (local storage) and is never sent to us.</p><p>The map in the Contact section is provided by Google Maps and is only loaded if you choose to display it; from that moment, Google may set its own cookies under its privacy policy. Likewise, the WhatsApp button only opens WhatsApp if you click it, and the conversation is then governed by WhatsApp's own terms.</p>" },
+      { "title": "9. Children", "body": "<p>This website is not directed at children, and we do not knowingly collect personal data from minors.</p>" },
+      { "title": "10. Changes to this policy", "body": "<p>We may update this policy from time to time. The date of the most recent update is shown at the top of this page.</p>" }
+    ]
+  }
+}

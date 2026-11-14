@@ -1,0 +1,232 @@
+{
+  "entries": [
+    {
+      "id": "about",
+      "keywords": [
+        "knotide",
+        "empresa",
+        "company",
+        "quem",
+        "who",
+        "sobre",
+        "about",
+        "objetivo",
+        "missão",
+        "missao",
+        "mission"
+      ],
+      "pt": "A Knotide Bio concebe, desenvolve e faz avançar pequenas proteínas bioativas altamente estáveis para a saúde, a nutrição e o bem-estar animal, combinando design computacional, descoberta experimental e produção por fermentação de precisão. Pode ver mais na secção <a href=\"#platform\">Plataforma</a>.",
+      "en": "Knotide Bio designs, develops and advances highly stable bioactive small proteins for animal health, nutrition and welfare, combining computational design, experimental discovery and production through precision fermentation. You can read more in the <a href=\"#platform\">Platform</a> section."
+    },
+    {
+      "id": "ahpnd",
+      "keywords": [
+        "ahpnd",
+        "vibrio",
+        "parahaemolyticus",
+        "camarão",
+        "camarao",
+        "shrimp",
+        "necrose",
+        "necrosis",
+        "hepatopancreatic",
+        "hepatopancreática"
+      ],
+      "pt": "A AHPND (necrose hepatopancreática aguda) é causada por <em>Vibrio parahaemolyticus</em> e pode dizimar um tanque de camarão nos 30 dias seguintes ao povoamento. Desde 2010 já custou à indústria mundial do camarão mais de 43 mil milhões de dólares. É o primeiro caso de aplicação da Knotide Bio.",
+      "en": "AHPND (Acute Hepatopancreatic Necrosis Disease) is caused by <em>Vibrio parahaemolyticus</em> and can collapse a shrimp pond within 30 days of stocking. Since 2010 it has cost the global shrimp industry more than $43 billion. It is Knotide Bio's first application case."
+    },
+    {
+      "id": "sealice",
+      "keywords": [
+        "piolho",
+        "piolhos",
+        "lice",
+        "salmão",
+        "salmao",
+        "salmon",
+        "lepeophtheirus",
+        "caligus"
+      ],
+      "pt": "Os piolhos-do-mar (<em>Lepeophtheirus salmonis</em> e <em>Caligus rogercresseyi</em>) afetam a aquacultura de salmão e são a segunda aplicação da plataforma, que partilha o mesmo mecanismo central da primeira.",
+      "en": "Sea lice (<em>Lepeophtheirus salmonis</em> and <em>Caligus rogercresseyi</em>) affect salmon aquaculture and are the platform's second application, sharing the same core mechanism as the first."
+    },
+    {
+      "id": "mechanism",
+      "keywords": [
+        "mecanismo",
+        "mechanism",
+        "toxina",
+        "toxin",
+        "neutralizar",
+        "neutralise",
+        "pirab",
+        "pira",
+        "pirb",
+        "recetor",
+        "receptor",
+        "apn1",
+        "antibiótico",
+        "antibiotico",
+        "antibiotic"
+      ],
+      "pt": "No exemplo ilustrativo, a proteína é desenhada para neutralizar a toxina de que o agente patogénico precisa para lesar o hospedeiro, impedindo que o complexo PirAB se ligue ao recetor Lv-APN1, em vez de depender de uma atividade antimicrobiana de largo espetro.",
+      "en": "In the illustrative example, the protein is designed to neutralise the toxin a pathogen needs to damage its host, preventing the PirAB complex from binding the Lv-APN1 receptor, instead of relying on broad antimicrobial activity."
+    },
+    {
+      "id": "species",
+      "keywords": [
+        "espécies",
+        "especies",
+        "species",
+        "aves",
+        "poultry",
+        "suínos",
+        "suinos",
+        "swine",
+        "pig",
+        "ruminantes",
+        "ruminants",
+        "cattle",
+        "companhia",
+        "pets",
+        "dog",
+        "aquacultura",
+        "aquaculture",
+        "aplicações",
+        "aplicacoes",
+        "applications"
+      ],
+      "pt": "A plataforma foi pensada para a aquacultura, aves, suínos, ruminantes e animais de companhia, em três pilares: saúde, nutrição e bem-estar animal. Veja a secção <a href=\"#applications\">Aplicações</a>.",
+      "en": "The platform is built to serve aquaculture, poultry, swine, ruminants and pets, across three pillars: animal health, nutrition and welfare. See the <a href=\"#applications\">Applications</a> section."
+    },
+    {
+      "id": "production",
+      "keywords": [
+        "produção",
+        "producao",
+        "production",
+        "fermentação",
+        "fermentacao",
+        "fermentation",
+        "custo",
+        "cost",
+        "escala",
+        "scale",
+        "escalável",
+        "scalable"
+      ],
+      "pt": "As proteínas são desenhadas também para uma produção eficiente por fermentação de precisão, com o objetivo de assegurar um fabrico escalável, consistente e economicamente eficiente.",
+      "en": "The proteins are also designed for efficient production through precision fermentation, with the aim of enabling scalable, consistent and cost-effective manufacturing."
+    },
+    {
+      "id": "biosensing",
+      "keywords": [
+        "biossensor",
+        "biossensores",
+        "biosensing",
+        "biosensor",
+        "deteção",
+        "detecao",
+        "detection",
+        "diagnóstico",
+        "diagnostico",
+        "diagnostic"
+      ],
+      "pt": "Os biossensores são uma linha exploratória da plataforma: as mesmas proteínas que reconhecem alvos específicos podem funcionar como elemento de reconhecimento molecular em formatos de deteção rápida. Não existe ainda um produto de deteção comercial. Veja <a href=\"#biosensing\">Biossensores</a>.",
+      "en": "Biosensing is an exploratory direction of the platform: the same proteins that recognise specific targets can act as the molecular recognition element in rapid-detection formats. There is no commercial detection product yet. See <a href=\"#biosensing\">Biosensing</a>."
+    },
+    {
+      "id": "services",
+      "keywords": [
+        "serviço",
+        "servico",
+        "serviços",
+        "servicos",
+        "service",
+        "services",
+        "consultoria",
+        "consultancy",
+        "ensaios",
+        "testing",
+        "laboratório",
+        "laboratorio",
+        "laboratory"
+      ],
+      "pt": "A Knotide Bio presta serviços de investigação e desenvolvimento, produção de biomoléculas, consultoria científica e técnica, e ensaios laboratoriais e validação. Veja <a href=\"#services\">Serviços</a>.",
+      "en": "Knotide Bio provides research and development, biomolecule production, scientific and technical consultancy, and laboratory testing and validation. See <a href=\"#services\">Services</a>."
+    },
+    {
+      "id": "team",
+      "keywords": [
+        "equipa",
+        "team",
+        "fundadores",
+        "founders",
+        "cientistas",
+        "scientists",
+        "experiência",
+        "experiencia",
+        "experience",
+        "universidade",
+        "university"
+      ],
+      "pt": "A Knotide Bio foi fundada por três cientistas com percursos complementares em biologia molecular, engenharia bioquímica e biotecnologia, com mais de 45 anos de experiência acumulada na indústria e em I&D. Veja <a href=\"#team\">Equipa</a>.",
+      "en": "Knotide Bio was founded by three scientists with complementary backgrounds in molecular biology, biochemical engineering and biotechnology, with more than 45 years of combined industry and R&D experience. See <a href=\"#team\">Team</a>."
+    },
+    {
+      "id": "funding",
+      "keywords": [
+        "financiamento",
+        "funding",
+        "consórcio",
+        "consorcio",
+        "consortium",
+        "parceria",
+        "partnership",
+        "horizon",
+        "horizonte",
+        "compete",
+        "portugal 2030",
+        "mar2030",
+        "candidatura"
+      ],
+      "pt": "A Knotide Bio procura apoio através de programas como o Portugal 2030, o COMPETE, o MAR2030 e o Horizonte Europa, e está aberta a parceiros interessados em candidaturas conjuntas. Veja <a href=\"#funding\">Financiamento</a>.",
+      "en": "Knotide Bio is seeking support through programmes such as Portugal 2030, COMPETE, MAR2030 and Horizon Europe, and welcomes partners interested in joint applications. See <a href=\"#funding\">Funding</a>."
+    },
+    {
+      "id": "contact",
+      "keywords": [
+        "contacto",
+        "contactar",
+        "contact",
+        "email",
+        "morada",
+        "address",
+        "onde",
+        "where",
+        "localização",
+        "location",
+        "gaia",
+        "porto",
+        "telefone",
+        "phone"
+      ],
+      "pt": "Pode escrever para <a href=\"mailto:info@knotidebio.pt\">info@knotidebio.pt</a> ou usar o <a href=\"#contact\">formulário de contacto</a>. A sede fica na Avenida da República, n.º 1333, 1.º traseiras, 4430-204 Vila Nova de Gaia.",
+      "en": "You can write to <a href=\"mailto:info@knotidebio.pt\">info@knotidebio.pt</a> or use the <a href=\"#contact\">contact form</a>. The registered office is at Avenida da República, n.º 1333, 1.º traseiras, 4430-204 Vila Nova de Gaia."
+    },
+    {
+      "id": "privacy",
+      "keywords": [
+        "privacidade",
+        "privacy",
+        "dados",
+        "data",
+        "rgpd",
+        "gdpr",
+        "cookies"
+      ],
+      "pt": "Este site não utiliza cookies. Os dados do formulário servem apenas para responder ao seu pedido e são conservados no máximo 24 meses. Veja a <a href=\"{privacy}\">Política de Privacidade</a>.",
+      "en": "This website does not use cookies. Form data is used only to answer your enquiry and is kept for no longer than 24 months. See the <a href=\"{privacy}\">Privacy Policy</a>."
+    }
+  ]
+}
