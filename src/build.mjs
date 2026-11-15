@@ -336,20 +336,19 @@ ${header(t, lang, 'home')}
         <p class="note">${t.applications.exampleNote}</p>
       </div>
       <div class="example-figs reveal">
-        <div class="compare" id="compare" style="--pos:100%">
+        <div class="compare" id="compare" style="--t:0">
           <div class="compare-stage">
             ${img('mechanism-panel-a', [480, 820], t.applications.figAAlt, { sizes: '(max-width: 700px) 90vw, 560px', w: 820, h: 1030, cls: 'compare-a' })}
             ${img('mechanism-panel-b', [480, 820], t.applications.figBAlt, { sizes: '(max-width: 700px) 90vw, 560px', w: 820, h: 1030, cls: 'compare-b' })}
-            <div class="compare-handle" aria-hidden="true"><span></span></div>
-            <span class="compare-tag tag-a">A</span><span class="compare-tag tag-b">B</span>
+            <span class="compare-letter" aria-hidden="true"><span class="la">A</span><span class="lb">B</span></span>
           </div>
-          <label class="sr-only" for="compareRange">${t.applications.compare.aria}</label>
-          <input type="range" id="compareRange" class="compare-range" min="0" max="100" value="100" aria-label="${esc(t.applications.compare.aria)}">
-          <div class="compare-legend">
-            <button type="button" data-go="100"><strong>${t.applications.figA}</strong></button>
-            <span class="compare-hint">${t.applications.compare.hint}</span>
-            <button type="button" data-go="0"><strong>${t.applications.figB}</strong></button>
+          <div class="compare-bar">
+            <span class="cb-end">A</span>
+            <input type="range" id="compareRange" class="compare-range" min="0" max="100" value="0" aria-label="${esc(t.applications.compare.aria)}">
+            <span class="cb-end">B</span>
           </div>
+          <p class="compare-caption"><span class="cap-a">${t.applications.figA}</span><span class="cap-b">${t.applications.figB}</span></p>
+          <p class="compare-hint">${t.applications.compare.hint}</p>
         </div>
         <p class="fig-caption">${t.applications.figCaption}</p>
       </div>
