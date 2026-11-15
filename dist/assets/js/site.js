@@ -226,29 +226,32 @@
     window.addEventListener('resize', update); update();
   })();
 
-  /* ---------- Mechanism of action: compare A and B ---------- */
+  /* ---------- Mechanism of action: A fades into B (one panel at a time) ---------- */
   var cmp = document.getElementById('compare');
   if (cmp) (function () {
-    var range = document.getElementById('compareRange'), stage = cmp.querySelector('.compare-stage'), dragging = false;
+    var range = document.getElementById('compareRange'), stage = cmp.querySelector('.compare-stage'), dragging = false, x0 = 0, v0 = 0;
     function set(v, animate) {
-      cmp.classList.toggle('anim', !!animate);
       v = Math.max(0, Math.min(100, v));
-      cmp.style.setProperty('--pos', v + '%'); range.value = Math.round(v);
+      cmp.classList.toggle('anim', !!animate);
+      // steep cross-fade around the middle so the two sets of labels are never shown together for long
+      var k = Math.min(1, Math.max(0, (v - 35) / 30)); k = k * k * (3 - 2 * k);
+      cmp.style.setProperty('--fa', (1 - k).toFixed(3));
+      cmp.style.setProperty('--fb', k.toFixed(3));
+      range.value = Math.round(v);
     }
-    range.addEventListener('input', function () { set(+range.value); });
-    cmp.querySelectorAll('[data-go]').forEach(function (b) { b.addEventListener('click', function () { set(+b.dataset.go, true); }); });
-    function fromEvent(e) { var r = stage.getBoundingClientRect(); return ((e.clientX - r.left) / r.width) * 100; }
-    stage.addEventListener('pointerdown', function (e) { dragging = true; stage.setPointerCapture(e.pointerId); set(fromEvent(e)); });
-    stage.addEventListener('pointermove', function (e) { if (dragging) set(fromEvent(e)); });
-    stage.addEventListener('pointerup', function () { dragging = false; });
-    // When it first comes into view, sweep from A to B and settle in the middle.
-    if ('IntersectionObserver' in window && !reduceMotion) {
-      new IntersectionObserver(function (en, obs) {
-        if (!en[0].isIntersecting) return; obs.disconnect();
-        setTimeout(function () { set(0, true); }, 300);
-        setTimeout(function () { set(50, true); }, 2300);
-      }, { threshold: 0.5 }).observe(cmp);
-    } else set(50);
+    range.addEventListener('input', function () { cmp.classList.add('used'); set(+range.value); });
+    range.addEventListener('change', function () { set(+range.value < 50 ? 0 : 100, true); });
+    stage.addEventListener('pointerdown', function (e) { e.preventDefault(); dragging = true; x0 = e.clientX; v0 = +range.value; stage.setPointerCapture(e.pointerId); });
+    stage.addEventListener('pointermove', function (e) { if (!dragging) return; cmp.classList.add('used'); set(v0 + ((e.clientX - x0) / stage.clientWidth) * 160); });
+    function end(e) {
+      if (!dragging) return; dragging = false;
+      var moved = Math.abs(e.clientX - x0) > 6;
+      // a tap toggles between A and B; a drag settles on the closest panel
+      if (!moved) set(+range.value < 50 ? 100 : 0, true); else set(+range.value < 50 ? 0 : 100, true);
+      cmp.classList.add('used');
+    }
+    stage.addEventListener('pointerup', end); stage.addEventListener('pointercancel', end);
+    set(0);
   })();
 
   /* ---------- Hero: discreet molecular network that reacts to the pointer ---------- */

@@ -30,7 +30,7 @@
 <link rel="apple-touch-icon" href="/assets/img/logo-mark.png">
 <link rel="preload" href="/assets/fonts/space-grotesk-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/assets/fonts/inter-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="/assets/css/site.css?v=mwi0emax">
+<link rel="stylesheet" href="/assets/css/site.css?v=mwi81v8w">
 <script>
 /* Language persistence: honour an explicit earlier choice, without hurting crawlers. */
 (function(){try{var want=localStorage.getItem('kb-lang');var here='en';
@@ -225,20 +225,19 @@ if(want&&want!==here&&!/[?&]stay=1/.test(location.search)){location.replace('/'+
         <p class="note">Knotide Bio's first application case is <em>AHPND in shrimp aquaculture</em>, chosen for its regulatory urgency, its market size and a well-characterised molecular target. Sea lice in salmon aquaculture is the platform's second application, and it shares the same core mechanism and the administration routes already used by the industry.</p>
       </div>
       <div class="example-figs reveal">
-        <div class="compare" id="compare" style="--pos:100%">
+        <div class="compare" id="compare" style="--t:0">
           <div class="compare-stage">
             <img src="/assets/img/mechanism-panel-a-820.webp" srcset="/assets/img/mechanism-panel-a-480.webp 480w, /assets/img/mechanism-panel-a-820.webp 820w" sizes="(max-width: 700px) 90vw, 560px" alt="Diagram A: the PirA/PirB toxin complex binding the Lv-APN1 receptor at the cell membrane." width="820" height="1030" class="compare-a" loading="lazy" decoding="async">
             <img src="/assets/img/mechanism-panel-b-820.webp" srcset="/assets/img/mechanism-panel-b-480.webp 480w, /assets/img/mechanism-panel-b-820.webp 820w" sizes="(max-width: 700px) 90vw, 560px" alt="Diagram B: the designed protein blocker occupying the PirB binding site, preventing the toxin complex from reaching the Lv-APN1 receptor, with a close-up inset of the blocking interaction." width="820" height="1030" class="compare-b" loading="lazy" decoding="async">
-            <div class="compare-handle" aria-hidden="true"><span></span></div>
-            <span class="compare-tag tag-a">A</span><span class="compare-tag tag-b">B</span>
+            <span class="compare-letter" aria-hidden="true"><span class="la">A</span><span class="lb">B</span></span>
           </div>
-          <label class="sr-only" for="compareRange">Compare panel A, toxin binding the receptor, with panel B, blocking by the designed protein</label>
-          <input type="range" id="compareRange" class="compare-range" min="0" max="100" value="100" aria-label="Compare panel A, toxin binding the receptor, with panel B, blocking by the designed protein">
-          <div class="compare-legend">
-            <button type="button" data-go="100"><strong>A. PirAB binds the Lv-APN1 receptor</strong></button>
-            <span class="compare-hint">Drag to compare</span>
-            <button type="button" data-go="0"><strong>B. The designed protein blocker prevents receptor binding</strong></button>
+          <div class="compare-bar">
+            <span class="cb-end">A</span>
+            <input type="range" id="compareRange" class="compare-range" min="0" max="100" value="0" aria-label="Compare panel A, toxin binding the receptor, with panel B, blocking by the designed protein">
+            <span class="cb-end">B</span>
           </div>
+          <p class="compare-caption"><span class="cap-a">A. PirAB binds the Lv-APN1 receptor</span><span class="cap-b">B. The designed protein blocker prevents receptor binding</span></p>
+          <p class="compare-hint">Drag to compare</p>
         </div>
         <p class="fig-caption">Mechanism of action: the designed protein blocker prevents the toxin complex from binding the cell-surface receptor.</p>
       </div>
@@ -411,6 +410,6 @@ if(want&&want!==here&&!/[?&]stay=1/.test(location.search)){location.replace('/'+
   </div>
 </div>
 <div class="cursor-light" aria-hidden="true"><span class="cursor-halo"></span><span class="cursor-dot"></span></div>
-<script src="/assets/js/site.js?v=mwi0emax" defer></script>
+<script src="/assets/js/site.js?v=mwi81v8w" defer></script>
 </body>
 </html>
