@@ -172,8 +172,9 @@ function home(lang) {
 ${header(t, lang, 'home')}
 <main id="main">
 
+<div class="dark-stack">
+<div class="glow" aria-hidden="true"></div>
 <section class="hero dark" aria-labelledby="hero-title">
-  <div class="glow" aria-hidden="true"></div>
   <div class="container hero-grid">
     <div class="hero-copy reveal">
       <p class="eyebrow">${t.hero.eyebrow}</p>
@@ -206,6 +207,7 @@ ${header(t, lang, 'home')}
     </figure>
   </div>
 </section>
+</div>
 
 <section class="light challenge" aria-labelledby="challenge-title">
   <div class="container">
