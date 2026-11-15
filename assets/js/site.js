@@ -56,7 +56,7 @@
     var btnToggle = viewer.querySelector('[data-act="toggle"]');
     var frames = new Array(N), loaded = 0, started = false;
     var pos = 0, zoom = 1, targetZoom = 1;
-    var SPEED = N / 18;            // one full revolution every 18 s
+    var SPEED = N / 22;            // one full revolution every 22 s
     var playing = !reduceMotion, userPaused = reduceMotion, visible = false;
     var dragging = false, lastX = 0, velocity = 0, resumeTimer = null, last = 0, raf = 0;
 
@@ -91,8 +91,11 @@
       var p = ((pos % N) + N) % N, i0 = Math.floor(p), f = p - i0, i1 = (i0 + 1) % N;
       var a = ok(frames[i0]) ? i0 : nearest(i0, -1), b = ok(frames[i1]) ? i1 : nearest(i1, 1);
       if (a < 0) return;
+      // Short cross-fade only at the end of each step: the molecule stays sharp
+      // most of the time, while the change of angle still looks continuous.
+      var k = Math.min(1, Math.max(0, (f - 0.55) / 0.45)); k = k * k * (3 - 2 * k);
       blit(frames[a], 1);
-      if (b >= 0 && b !== a && f > 0.001) blit(frames[b], f);
+      if (b >= 0 && b !== a && k > 0.001) blit(frames[b], k);
       ctx.globalAlpha = 1;
     }
     function tick(t) {
@@ -152,6 +155,31 @@
       }, { rootMargin: '300px 0px' }).observe(viewer);
     } else { visible = true; load(); kick(); }
     btnToggle.textContent = userPaused ? viewer.dataset.resume : viewer.dataset.pause;
+  })();
+
+  /* ---------- Cursor light ---------- */
+  var cl = document.querySelector('.cursor-light');
+  if (cl && window.matchMedia('(hover: hover) and (pointer: fine)').matches && !reduceMotion) (function () {
+    var dot = cl.querySelector('.cursor-dot'), halo = cl.querySelector('.cursor-halo');
+    var x = -100, y = -100, hx = -100, hy = -100, running = false;
+    function loop() {
+      hx += (x - hx) * 0.14; hy += (y - hy) * 0.14;
+      halo.style.transform = 'translate3d(' + hx + 'px,' + hy + 'px,0)';
+      if (Math.abs(x - hx) + Math.abs(y - hy) > 0.5) requestAnimationFrame(loop); else running = false;
+    }
+    document.addEventListener('pointermove', function (e) {
+      if (e.pointerType !== 'mouse') return;
+      x = e.clientX; y = e.clientY;
+      dot.style.transform = 'translate3d(' + x + 'px,' + y + 'px,0)';
+      cl.classList.add('cursor-on');
+      if (!running) { running = true; requestAnimationFrame(loop); }
+      var el = e.target;
+      cl.classList.toggle('cursor-hover', !!(el.closest && el.closest('a, button, label, select, input, textarea, .viewer-stage')));
+      var sec = el.closest && el.closest('section, header, footer');
+      cl.classList.toggle('on-light', !!(sec && (sec.classList.contains('light') || sec.classList.contains('site-header'))));
+    }, { passive: true });
+    document.addEventListener('pointerleave', function () { cl.classList.remove('cursor-on'); });
+    document.documentElement.addEventListener('mouseleave', function () { cl.classList.remove('cursor-on'); });
   })();
 
   /* ---------- Map (click to load, keeps the site cookie-free by default) ---------- */
