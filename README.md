@@ -82,7 +82,15 @@ O campo invisível `_gotcha` trava robôs de spam.
 
 No painel do Formspree (formspree.io → o seu formulário):
 - **Settings → Restrict to domain**: indique `knotidebio.pt` para impedir abusos a partir de outros sites.
-- **Destinatários**: no plano gratuito pode associar até **dois emails** de notificação (ex. `info@knotidebio.pt` e um pessoal).
+- **Destinatários (vários Gmails, sem custos)**: o plano gratuito envia cada formulário para um único endereço.
+  Para chegar a várias pessoas, use um **Grupo Google** como destinatário:
+  1. Em https://groups.google.com, clique em **Criar grupo**. Nome: `Knotide Contactos`. Email do grupo: por exemplo `knotide-contactos@googlegroups.com`.
+  2. Em **Quem pode publicar**, escolha **Toda a Web** (para aceitar os emails do Formspree).
+  3. Em **Membros → Adicionar membros**, junte os Gmails que devem receber os contactos (podem ser quantos quiser) e marque a opção para os adicionar diretamente.
+  4. No Formspree: **Account → Linked emails → Add email**, e acrescente o email do grupo. O Formspree envia um email de confirmação; como chega a todos os membros, qualquer um pode clicar em "Verify".
+  5. No formulário do Formspree: **Settings → Target email**, escolha o email do grupo e guarde.
+  6. Envie uma mensagem de teste pelo site: deve chegar a todos os Gmails do grupo.
+  Para acrescentar ou retirar pessoas no futuro, basta editar os membros do grupo; o site não precisa de alterações.
 - **Histórico**: as mensagens ficam guardadas 30 dias no painel (exporte se precisar de as guardar por mais tempo).
 - **Encaminhar por tipo de pedido** (ex. "Licenciamento" para uma pessoa, "Serviços laboratoriais" para outra):
   crie um segundo formulário no Formspree e, no email, use filtros/regras pelo assunto `[Knotide Bio] Licenciamento`.
