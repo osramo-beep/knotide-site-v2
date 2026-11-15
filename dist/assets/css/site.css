@@ -554,11 +554,12 @@ section { position: relative; padding: clamp(72px, 10vw, 128px) 0; }
 .calls-note { margin: 0; font-size: .9rem; line-height: 1.5; }
 .calls-ticker { position: relative; z-index: 1; overflow: hidden;
   -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 12%, #000 88%, transparent 100%); mask-image: linear-gradient(90deg, transparent 0, #000 12%, #000 88%, transparent 100%); }
-.calls-track { display: flex; width: max-content; animation: callsMarquee 38s linear infinite; }
+.calls-track { display: flex; align-items: stretch; width: max-content; animation: callsMarquee 38s linear infinite; }
 .calls-ticker:hover .calls-track, .calls-ticker:focus-within .calls-track { animation-play-state: paused; }
 @keyframes callsMarquee { from { transform: translateX(-50%); } to { transform: translateX(0); } }
-.calls-list { list-style: none; margin: 0; padding: 0 0 0 14px; display: flex; gap: 14px; }
-.calls-list li > * { display: grid; gap: 5px; width: max-content; max-width: 380px; padding: 14px 18px; border-radius: 14px; border: 1px solid var(--line-dark); background: rgba(16, 30, 54, .75); text-decoration: none; transition: translate .28s ease, border-color .28s ease, box-shadow .28s ease; }
+.calls-list { list-style: none; margin: 0; padding: 0 0 0 14px; display: flex; align-items: stretch; gap: 14px; }
+.calls-list li { display: flex; }
+.calls-list li > * { display: flex; flex-direction: column; justify-content: flex-start; gap: 6px; width: 300px; height: 100%; min-height: 96px; padding: 16px 18px; border-radius: 14px; border: 1px solid var(--line-dark); background: rgba(16, 30, 54, .75); text-decoration: none; transition: translate .28s ease, border-color .28s ease, box-shadow .28s ease; }
 .calls-list li > *:hover { translate: 0 -3px; border-color: #1CD5E7; box-shadow: 0 16px 34px -20px rgba(28, 213, 231, .5); }
 .calls-prog { font: 600 .74rem/1.2 var(--head); letter-spacing: .1em; text-transform: uppercase; color: #1CD5E7; }
 .calls-name { font: 500 .95rem/1.35 var(--body); color: #fff; }
