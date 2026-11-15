@@ -30,7 +30,7 @@
 <link rel="apple-touch-icon" href="/assets/img/logo-mark.png">
 <link rel="preload" href="/assets/fonts/space-grotesk-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/assets/fonts/inter-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="/assets/css/site.css?v=mwhy58f6">
+<link rel="stylesheet" href="/assets/css/site.css?v=mwi0emax">
 <script>
 /* Language persistence: honour an explicit earlier choice, without hurting crawlers. */
 (function(){try{var want=localStorage.getItem('kb-lang');var here='pt';
@@ -45,7 +45,7 @@ if(want&&want!==here&&!/[?&]stay=1/.test(location.search)){location.replace('/en
   <nav class="nav container" aria-label="Navegação principal">
     <a href="/" class="logo" aria-label="Knotide Bio">
       <img src="/assets/img/logo-mark.webp" alt="" width="40" height="40">
-      <span class="logo-word">Knotide<span>Bio</span></span>
+      <span class="logo-word" aria-label="Knotide Bio"><span class="ch" style="--i:0">K</span><span class="ch" style="--i:1">n</span><span class="ch" style="--i:2">o</span><span class="ch" style="--i:3">t</span><span class="ch" style="--i:4">i</span><span class="ch" style="--i:5">d</span><span class="ch" style="--i:6">e</span><span class="bio"><span class="ch" style="--i:7">B</span><span class="ch" style="--i:8">i</span><span class="ch" style="--i:9">o</span></span></span>
     </a>
     <ul class="nav-links" id="navLinks">
       <li><a href="#platform">Plataforma</a></li>
@@ -71,6 +71,7 @@ if(want&&want!==here&&!/[?&]stay=1/.test(location.search)){location.replace('/en
 <div class="dark-stack">
 <div class="glow" aria-hidden="true"></div>
 <section class="hero dark" aria-labelledby="hero-title">
+  <canvas class="hero-net" aria-hidden="true"></canvas>
   <div class="container hero-grid">
     <div class="hero-copy reveal">
       <p class="eyebrow">Biotecnologia para a saúde animal</p>
@@ -122,6 +123,27 @@ if(want&&want!==here&&!/[?&]stay=1/.test(location.search)){location.replace('/en
       <strong>Um setor sob pressão regulamentar e económica</strong>
       <p>Desde 2010, a AHPND já custou à indústria mundial do camarão mais de 43 mil milhões de dólares, com mortalidades que podem atingir 100% nos 30-35 dias seguintes a um surto. Ao mesmo tempo, as rejeições de importações na UE e nos EUA devido a resíduos de antibióticos, a par da meta europeia Do Prado ao Prato (<span lang="en">Farm to Fork</span>) de -50% no uso de antimicrobianos até 2030, estão a gerar uma procura ativa por alternativas sem resíduos.</p>
     </aside>
+    <div class="data-panel reveal" id="dataPanel">
+      <p class="label">O problema em números</p>
+      <div class="data-grid">
+        <div class="data-card data-loss">
+          <p class="data-big"><span class="count" data-to="43">43</span><small>mil milhões de USD</small></p>
+          <p class="data-text">Perdas acumuladas estimadas na indústria do camarão afetada pela AHPND, na Ásia e no México.</p>
+        </div>
+        <div class="data-card data-mort">
+          <p class="data-title">Mortalidade em massa em poucas semanas</p>
+          <div class="mort-track"><span class="mort-fill"></span></div>
+          <div class="mort-ticks" aria-hidden="true"><i style="left:0"></i><i style="left:28.6%"></i><i style="left:85.7%"></i><i style="left:calc(100% - 2px)"></i></div>
+          <ol class="mort-marks"><li><strong>Dia 0</strong><span>Povoamento do tanque</span></li><li><strong>Dia 10</strong><span>Primeiros sinais clínicos</span></li><li><strong>Dias 30-35</strong><span>Mortalidade até 100%</span></li></ol>
+          <p class="data-text mort-text">Os sinais clínicos e a mortalidade podem surgir a partir do 10.º dia após o povoamento; a mortalidade em massa, até 100%, ocorre habitualmente nos 30-35 dias seguintes ao povoamento.</p>
+        </div>
+        <div class="data-card data-f2f">
+          <p class="data-title">Vendas de antimicrobianos para animais de produção e aquacultura na UE (2018 = 100)</p>
+          <div class="bars"><div class="bar" style="--v:100"><span class="bar-fill"><span class="bar-note">Referência</span></span><span class="bar-year">2018</span></div><div class="bar" style="--v:72"><span class="bar-fill"><span class="bar-note">-28%</span></span><span class="bar-year">2022</span></div><div class="bar" style="--v:50"><span class="bar-fill"><span class="bar-note">Meta -50%</span></span><span class="bar-year">2030</span></div></div>
+        </div>
+      </div>
+      <p class="data-sources">Fontes: <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC8402356/" target="_blank" rel="noopener">Kumar et al. (2021), <em>Toxins</em> 13:524</a> · <a href="https://www.woah.org/fileadmin/Home/eng/Health_standards/aahm/current/chapitre_ahpnd.pdf" target="_blank" rel="noopener">WOAH, Manual of Diagnostic Tests for Aquatic Animals, capítulo AHPND</a> · <a href="https://www.eea.europa.eu/en/analysis/publications/veterinary-antimicrobials-in-europes-environment-a-one-health-perspective" target="_blank" rel="noopener">Agência Europeia do Ambiente, estratégia Do Prado ao Prato</a></p>
+    </div>
   </div>
 </section>
 
@@ -133,7 +155,8 @@ if(want&&want!==here&&!/[?&]stay=1/.test(location.search)){location.replace('/en
       <h2 id="platform-title">Das pequenas proteínas bioativas ao produto, com rigor científico em cada etapa</h2>
       <p class="section-desc">A Knotide Bio explora famílias de pequenas proteínas bioativas como ponto de partida para desenhar soluções biotecnológicas dirigidas a alvos específicos em saúde animal.</p>
     </header>
-    <ol class="pipeline">
+    <div class="pipeline-track" aria-hidden="true"><span></span></div>
+    <ol class="pipeline" id="pipeline">
       <li class="reveal"><span class="num">01</span><h3>Descoberta</h3><p>Bioprospeção e seleção de proteínas bioativas com potencial atividade contra alvos identificados.</p></li>
       <li class="reveal"><span class="num">02</span><h3>Caracterização</h3><p>Estudo da estrutura, da função e do mecanismo de ação das proteínas selecionadas.</p></li>
       <li class="reveal"><span class="num">03</span><h3>Validação</h3><p>Ensaios e análises laboratoriais que confirmam a atividade, a seletividade e a segurança.</p></li>
@@ -202,9 +225,20 @@ if(want&&want!==here&&!/[?&]stay=1/.test(location.search)){location.replace('/en
         <p class="note">O primeiro caso de aplicação da Knotide Bio é a <em>AHPND na aquacultura de camarão</em>, escolhida pela urgência regulamentar, pela dimensão do mercado e por ter um alvo molecular bem caracterizado. Os piolhos-do-mar na aquacultura de salmão são a segunda aplicação da plataforma, que partilha o mesmo mecanismo central e as vias de administração já utilizadas pela indústria.</p>
       </div>
       <div class="example-figs reveal">
-        <div class="fig-row">
-          <figure><img src="/assets/img/mechanism-panel-a-820.webp" srcset="/assets/img/mechanism-panel-a-480.webp 480w, /assets/img/mechanism-panel-a-820.webp 820w" sizes="(max-width: 700px) 46vw, 300px" alt="Diagrama A: o complexo de toxinas PirA/PirB ligado ao recetor Lv-APN1 na membrana celular." width="820" height="1030" loading="lazy" decoding="async"><figcaption>A. O complexo PirAB liga-se ao recetor Lv-APN1</figcaption></figure>
-          <figure><img src="/assets/img/mechanism-panel-b-820.webp" srcset="/assets/img/mechanism-panel-b-480.webp 480w, /assets/img/mechanism-panel-b-820.webp 820w" sizes="(max-width: 700px) 46vw, 300px" alt="Diagrama B: a proteína bloqueadora desenhada ocupa o local de ligação da PirB e impede que o complexo de toxinas alcance o recetor Lv-APN1, com um pormenor ampliado da interação de bloqueio." width="820" height="1030" loading="lazy" decoding="async"><figcaption>B. A proteína bloqueadora desenhada impede a ligação ao recetor</figcaption></figure>
+        <div class="compare" id="compare" style="--pos:100%">
+          <div class="compare-stage">
+            <img src="/assets/img/mechanism-panel-a-820.webp" srcset="/assets/img/mechanism-panel-a-480.webp 480w, /assets/img/mechanism-panel-a-820.webp 820w" sizes="(max-width: 700px) 90vw, 560px" alt="Diagrama A: o complexo de toxinas PirA/PirB ligado ao recetor Lv-APN1 na membrana celular." width="820" height="1030" class="compare-a" loading="lazy" decoding="async">
+            <img src="/assets/img/mechanism-panel-b-820.webp" srcset="/assets/img/mechanism-panel-b-480.webp 480w, /assets/img/mechanism-panel-b-820.webp 820w" sizes="(max-width: 700px) 90vw, 560px" alt="Diagrama B: a proteína bloqueadora desenhada ocupa o local de ligação da PirB e impede que o complexo de toxinas alcance o recetor Lv-APN1, com um pormenor ampliado da interação de bloqueio." width="820" height="1030" class="compare-b" loading="lazy" decoding="async">
+            <div class="compare-handle" aria-hidden="true"><span></span></div>
+            <span class="compare-tag tag-a">A</span><span class="compare-tag tag-b">B</span>
+          </div>
+          <label class="sr-only" for="compareRange">Comparar o painel A, ligação da toxina ao recetor, com o painel B, bloqueio pela proteína desenhada</label>
+          <input type="range" id="compareRange" class="compare-range" min="0" max="100" value="100" aria-label="Comparar o painel A, ligação da toxina ao recetor, com o painel B, bloqueio pela proteína desenhada">
+          <div class="compare-legend">
+            <button type="button" data-go="100"><strong>A. O complexo PirAB liga-se ao recetor Lv-APN1</strong></button>
+            <span class="compare-hint">Arraste para comparar</span>
+            <button type="button" data-go="0"><strong>B. A proteína bloqueadora desenhada impede a ligação ao recetor</strong></button>
+          </div>
         </div>
         <p class="fig-caption">Mecanismo de ação: a proteína bloqueadora desenhada impede que o complexo de toxinas se ligue ao recetor da superfície celular.</p>
       </div>
@@ -253,9 +287,9 @@ if(want&&want!==here&&!/[?&]stay=1/.test(location.search)){location.replace('/en
       <p class="section-desc">A Knotide Bio foi fundada por três cientistas com percursos académicos e empresariais complementares em biologia molecular, engenharia bioquímica e biotecnologia.</p>
     </header>
     <dl class="team-stats">
-      <div class="team-stat reveal"><dt>35+</dt><dd>anos na descoberta de <i lang="en">scaffolds</i> do tipo anticorpo</dd></div>
-      <div class="team-stat reveal"><dt>45+</dt><dd>anos de experiência acumulada na indústria e em I&D</dd></div>
-      <div class="team-stat reveal"><dt>€40M+</dt><dd>em financiamento de I&D gerido</dd></div>
+      <div class="team-stat reveal"><dt><span class="count" data-to="35">35</span>+</dt><dd>anos na descoberta de <i lang="en">scaffolds</i> do tipo anticorpo</dd></div>
+      <div class="team-stat reveal"><dt><span class="count" data-to="45">45</span>+</dt><dd>anos de experiência acumulada na indústria e em I&D</dd></div>
+      <div class="team-stat reveal"><dt>€<span class="count" data-to="40">40</span>M+</dt><dd>em financiamento de I&D gerido</dd></div>
     </dl>
     <p class="species-label">As nossas competências</p>
     <div class="expertise">
@@ -281,6 +315,27 @@ if(want&&want!==here&&!/[?&]stay=1/.test(location.search)){location.replace('/en
         <p>A Knotide Bio está estruturada para concorrer a financiamento público de investigação e inovação e procura atualmente apoio através de programas como o Portugal 2030, o COMPETE, o MAR2030 e o Horizonte Europa. Por isso, estamos abertos a grupos académicos, empresas e parceiros de consórcio interessados em candidaturas conjuntas e em investigação cofinanciada.</p>
       </div>
       <ul class="funding-list"><li>Portugal 2030 / COMPETE</li><li>MAR2030</li><li>Horizonte Europa</li><li>I&D em consórcio e cofinanciada</li></ul>
+    </div>
+    <div class="calls reveal">
+      <div class="calls-head"><p class="label">Concursos de interesse</p><p class="calls-note">Concursos em que a Knotide Bio tem interesse em participar. Se a sua organização também está a olhar para algum destes concursos, fale connosco: procuramos parceiros para construir consórcios fortes.</p><a href="#contact" class="btn btn-primary btn-sm calls-cta" data-enquiry="Financiamento ou consórcio">Propor uma parceria</a></div>
+      <div class="calls-ticker" aria-label="Concursos de interesse">
+        <div class="calls-track">
+          <ul class="calls-list">
+            <li><div><span class="calls-prog">EEA Grants · Crescimento Azul</span><span class="calls-name">Aviso 4: Collaborative Blue Research and Innovation for Societal Impact</span></div></li>
+            <li><div><span class="calls-prog">Horizonte Europa</span><span class="calls-name">HORIZON-CL6-2027-02-FARM2FORK-03</span></div></li>
+            <li><div><span class="calls-prog">Eurostars-3</span><span class="calls-name">Call 12</span></div></li>
+            <li><div><span class="calls-prog">EUPAHW</span><span class="calls-name">Shaping the Future of Animal Health and Welfare</span></div></li>
+            <li><div><span class="calls-prog">CBE JU</span><span class="calls-name">Circular Bio-based Europe Joint Undertaking, concurso 2027</span></div></li>
+          </ul>
+          <ul class="calls-list" aria-hidden="true">
+            <li><div><span class="calls-prog">EEA Grants · Crescimento Azul</span><span class="calls-name">Aviso 4: Collaborative Blue Research and Innovation for Societal Impact</span></div></li>
+            <li><div><span class="calls-prog">Horizonte Europa</span><span class="calls-name">HORIZON-CL6-2027-02-FARM2FORK-03</span></div></li>
+            <li><div><span class="calls-prog">Eurostars-3</span><span class="calls-name">Call 12</span></div></li>
+            <li><div><span class="calls-prog">EUPAHW</span><span class="calls-name">Shaping the Future of Animal Health and Welfare</span></div></li>
+            <li><div><span class="calls-prog">CBE JU</span><span class="calls-name">Circular Bio-based Europe Joint Undertaking, concurso 2027</span></div></li>
+          </ul>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -319,7 +374,7 @@ if(want&&want!==here&&!/[?&]stay=1/.test(location.search)){location.replace('/en
         <div class="field"><label for="f-country">País</label><select id="f-country" name="country"><option value="">Selecionar</option><option>Portugal</option><option>Espanha</option><option>França</option><option>Alemanha</option><option>Itália</option><option>Países Baixos</option><option>Bélgica</option><option>Irlanda</option><option>Dinamarca</option><option>Noruega</option><option>Reino Unido</option><option>Outro país europeu</option><option>Brasil</option><option>Chile</option><option>Equador</option><option>México</option><option>Estados Unidos</option><option>Canadá</option><option>Índia</option><option>Vietname</option><option>Tailândia</option><option>Indonésia</option><option>China</option><option>Outro</option></select></div>
       </div>
       <div class="row2">
-        <div class="field"><label for="f-type">Tipo de pedido</label><select id="f-type" name="enquiry_type"><option value="">Selecionar</option><option>Parceria ou colaboração</option><option>Licenciamento</option><option>Serviços laboratoriais</option><option>Investigação e desenvolvimento</option><option>Financiamento ou consórcio</option><option>Comunicação social</option><option>Outro</option></select></div>
+        <div class="field"><label for="f-type">Tipo de pedido</label><select id="f-type" name="enquiry_type"><option value="">Selecionar</option><option>Parceria ou colaboração</option><option>Licenciamento</option><option>Serviços laboratoriais</option><option>Investigação e desenvolvimento</option><option>Financiamento ou consórcio</option><option>Investimento</option><option>Comunicação social</option><option>Outro</option></select></div>
         <div class="field"><label for="f-subject">Assunto <span class="opt">(opcional)</span></label><input id="f-subject" name="subject" maxlength="160"></div>
       </div>
       <fieldset class="field chips"><legend>Áreas de interesse</legend>
@@ -342,16 +397,20 @@ if(want&&want!==here&&!/[?&]stay=1/.test(location.search)){location.replace('/en
 </footer>
 <div class="chat" id="chat" data-lang="pt" data-privacy="/privacidade/">
   <button class="fab fab-chat" id="chatOpen" aria-expanded="false" aria-controls="chatPanel">Dúvidas?</button>
-  <section class="chat-panel" id="chatPanel" hidden aria-label="Assistente Knotide Bio">
-    <header class="chat-head"><strong>Assistente Knotide Bio</strong><button type="button" class="chat-x" id="chatClose" aria-label="Fechar assistente">×</button></header>
-    <div class="chat-log" id="chatLog" aria-live="polite"><p class="msg bot">Olá. Posso responder a perguntas breves sobre a Knotide Bio com base na informação deste site. O que gostaria de saber?</p></div>
-    <div class="chat-suggest" id="chatSuggest"><button type="button">O que faz a Knotide Bio?</button><button type="button">O que é a AHPND?</button><button type="button">Que serviços prestam?</button><button type="button">Como posso contactar-vos?</button></div>
-    <form class="chat-form" id="chatForm"><label class="sr-only" for="chatInput">Escreva a sua pergunta</label><input id="chatInput" autocomplete="off" placeholder="Escreva a sua pergunta"><button class="btn btn-primary btn-sm">Enviar</button></form>
-    <p class="chat-note">Respostas automáticas, baseadas apenas no conteúdo deste site.</p>
+  <div class="chat-panel" id="chatPanel" role="dialog" aria-modal="false" aria-labelledby="chatTitle" hidden>
+    <div class="chat-head">
+      <span class="chat-avatar" aria-hidden="true"><img src="/assets/img/logo-mark.webp" alt="" width="28" height="28"></span>
+      <div class="chat-id"><strong id="chatTitle">Assistente Knotide Bio</strong><span class="chat-status">Respostas baseadas no conteúdo do site</span></div>
+      <button type="button" class="chat-x" id="chatClose" aria-label="Fechar assistente">×</button>
+    </div>
+    <div class="chat-log" id="chatLog" aria-live="polite"><p class="msg bot">Olá. Sou o assistente da Knotide Bio e respondo a perguntas gerais sobre a empresa, os projetos e as formas de colaboração. Escolha uma pergunta ou escreva a sua.</p></div>
+    <div class="chat-suggest" id="chatSuggest"><button type="button">O que faz a Knotide Bio?</button><button type="button">Em que projetos e programas participam?</button><button type="button">Como podemos colaborar?</button><button type="button">Que serviços prestam a outras empresas?</button><button type="button">Em que fase de desenvolvimento estão?</button><button type="button">Estão abertos a investidores?</button></div>
+    <form class="chat-form" id="chatForm"><label class="sr-only" for="chatInput">Escreva a sua pergunta</label><textarea id="chatInput" rows="2" autocomplete="off" placeholder="Escreva a sua pergunta"></textarea><button class="chat-send" aria-label="Enviar">Enviar</button></form>
+    <div class="chat-foot"><a href="#contact" class="chat-talk" id="chatTalk">Falar com a equipa</a><p class="chat-note">Respostas automáticas, baseadas apenas na informação deste site. Para questões específicas, fale com a equipa.</p></div>
     <template id="chatFallback">Não tenho uma resposta fiável para isso neste site. O melhor é escrever à equipa através do <a href="#contact">formulário de contacto</a> ou para <a href="mailto:info@knotidebio.pt">info@knotidebio.pt</a>.</template>
-  </section>
+  </div>
 </div>
 <div class="cursor-light" aria-hidden="true"><span class="cursor-halo"></span><span class="cursor-dot"></span></div>
-<script src="/assets/js/site.js?v=mwhy58f6" defer></script>
+<script src="/assets/js/site.js?v=mwi0emax" defer></script>
 </body>
 </html>

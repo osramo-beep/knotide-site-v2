@@ -30,7 +30,7 @@
 <link rel="apple-touch-icon" href="/assets/img/logo-mark.png">
 <link rel="preload" href="/assets/fonts/space-grotesk-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/assets/fonts/inter-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="/assets/css/site.css?v=mwhy58f6">
+<link rel="stylesheet" href="/assets/css/site.css?v=mwi0emax">
 <script>
 /* Language persistence: honour an explicit earlier choice, without hurting crawlers. */
 (function(){try{var want=localStorage.getItem('kb-lang');var here='en';
@@ -45,7 +45,7 @@ if(want&&want!==here&&!/[?&]stay=1/.test(location.search)){location.replace('/'+
   <nav class="nav container" aria-label="Main navigation">
     <a href="/en/" class="logo" aria-label="Knotide Bio">
       <img src="/assets/img/logo-mark.webp" alt="" width="40" height="40">
-      <span class="logo-word">Knotide<span>Bio</span></span>
+      <span class="logo-word" aria-label="Knotide Bio"><span class="ch" style="--i:0">K</span><span class="ch" style="--i:1">n</span><span class="ch" style="--i:2">o</span><span class="ch" style="--i:3">t</span><span class="ch" style="--i:4">i</span><span class="ch" style="--i:5">d</span><span class="ch" style="--i:6">e</span><span class="bio"><span class="ch" style="--i:7">B</span><span class="ch" style="--i:8">i</span><span class="ch" style="--i:9">o</span></span></span>
     </a>
     <ul class="nav-links" id="navLinks">
       <li><a href="#platform">Platform</a></li>
@@ -71,6 +71,7 @@ if(want&&want!==here&&!/[?&]stay=1/.test(location.search)){location.replace('/'+
 <div class="dark-stack">
 <div class="glow" aria-hidden="true"></div>
 <section class="hero dark" aria-labelledby="hero-title">
+  <canvas class="hero-net" aria-hidden="true"></canvas>
   <div class="container hero-grid">
     <div class="hero-copy reveal">
       <p class="eyebrow">Biotechnology for animal health</p>
@@ -122,6 +123,27 @@ if(want&&want!==here&&!/[?&]stay=1/.test(location.search)){location.replace('/'+
       <strong>An industry under regulatory and economic pressure</strong>
       <p>Since 2010, AHPND has cost the global shrimp industry more than $43 billion, with mortality reaching up to 100% within 30-35 days of an outbreak. At the same time, EU and US import rejections over antibiotic residues, together with the EU's Farm to Fork target of -50% antimicrobial use by 2030, are driving active demand for residue-free alternatives.</p>
     </aside>
+    <div class="data-panel reveal" id="dataPanel">
+      <p class="label">The problem in numbers</p>
+      <div class="data-grid">
+        <div class="data-card data-loss">
+          <p class="data-big">$<span class="count" data-to="43">43</span><small>billion</small></p>
+          <p class="data-text">Estimated cumulative losses in the shrimp industry affected by AHPND, across Asia and Mexico.</p>
+        </div>
+        <div class="data-card data-mort">
+          <p class="data-title">Mass mortality within weeks</p>
+          <div class="mort-track"><span class="mort-fill"></span></div>
+          <div class="mort-ticks" aria-hidden="true"><i style="left:0"></i><i style="left:28.6%"></i><i style="left:85.7%"></i><i style="left:calc(100% - 2px)"></i></div>
+          <ol class="mort-marks"><li><strong>Day 0</strong><span>Pond stocking</span></li><li><strong>Day 10</strong><span>First clinical signs</span></li><li><strong>Days 30-35</strong><span>Mortality up to 100%</span></li></ol>
+          <p class="data-text mort-text">Clinical signs and mortality can start as early as day 10 after stocking; mass mortality, up to 100%, usually occurs within 30-35 days of stocking.</p>
+        </div>
+        <div class="data-card data-f2f">
+          <p class="data-title">EU sales of antimicrobials for farmed animals and aquaculture (2018 = 100)</p>
+          <div class="bars"><div class="bar" style="--v:100"><span class="bar-fill"><span class="bar-note">Baseline</span></span><span class="bar-year">2018</span></div><div class="bar" style="--v:72"><span class="bar-fill"><span class="bar-note">-28%</span></span><span class="bar-year">2022</span></div><div class="bar" style="--v:50"><span class="bar-fill"><span class="bar-note">Target -50%</span></span><span class="bar-year">2030</span></div></div>
+        </div>
+      </div>
+      <p class="data-sources">Sources: <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC8402356/" target="_blank" rel="noopener">Kumar et al. (2021), <em>Toxins</em> 13:524</a> · <a href="https://www.woah.org/fileadmin/Home/eng/Health_standards/aahm/current/chapitre_ahpnd.pdf" target="_blank" rel="noopener">WOAH, Manual of Diagnostic Tests for Aquatic Animals, AHPND chapter</a> · <a href="https://www.eea.europa.eu/en/analysis/publications/veterinary-antimicrobials-in-europes-environment-a-one-health-perspective" target="_blank" rel="noopener">European Environment Agency, Farm to Fork strategy</a></p>
+    </div>
   </div>
 </section>
 
@@ -133,7 +155,8 @@ if(want&&want!==here&&!/[?&]stay=1/.test(location.search)){location.replace('/'+
       <h2 id="platform-title">From bioactive small proteins to product, with scientific rigour at every stage</h2>
       <p class="section-desc">Knotide Bio explores families of bioactive small proteins as the starting point for designing biotechnological solutions aimed at specific targets in animal health.</p>
     </header>
-    <ol class="pipeline">
+    <div class="pipeline-track" aria-hidden="true"><span></span></div>
+    <ol class="pipeline" id="pipeline">
       <li class="reveal"><span class="num">01</span><h3>Discovery</h3><p>Bioprospecting and selection of bioactive proteins with potential activity against identified targets.</p></li>
       <li class="reveal"><span class="num">02</span><h3>Characterisation</h3><p>Study of the structure, function and mechanism of action of the selected proteins.</p></li>
       <li class="reveal"><span class="num">03</span><h3>Validation</h3><p>Laboratory assays and analyses that confirm activity, selectivity and safety.</p></li>
@@ -202,9 +225,20 @@ if(want&&want!==here&&!/[?&]stay=1/.test(location.search)){location.replace('/'+
         <p class="note">Knotide Bio's first application case is <em>AHPND in shrimp aquaculture</em>, chosen for its regulatory urgency, its market size and a well-characterised molecular target. Sea lice in salmon aquaculture is the platform's second application, and it shares the same core mechanism and the administration routes already used by the industry.</p>
       </div>
       <div class="example-figs reveal">
-        <div class="fig-row">
-          <figure><img src="/assets/img/mechanism-panel-a-820.webp" srcset="/assets/img/mechanism-panel-a-480.webp 480w, /assets/img/mechanism-panel-a-820.webp 820w" sizes="(max-width: 700px) 46vw, 300px" alt="Diagram A: the PirA/PirB toxin complex binding the Lv-APN1 receptor at the cell membrane." width="820" height="1030" loading="lazy" decoding="async"><figcaption>A. PirAB binds the Lv-APN1 receptor</figcaption></figure>
-          <figure><img src="/assets/img/mechanism-panel-b-820.webp" srcset="/assets/img/mechanism-panel-b-480.webp 480w, /assets/img/mechanism-panel-b-820.webp 820w" sizes="(max-width: 700px) 46vw, 300px" alt="Diagram B: the designed protein blocker occupying the PirB binding site, preventing the toxin complex from reaching the Lv-APN1 receptor, with a close-up inset of the blocking interaction." width="820" height="1030" loading="lazy" decoding="async"><figcaption>B. The designed protein blocker prevents receptor binding</figcaption></figure>
+        <div class="compare" id="compare" style="--pos:100%">
+          <div class="compare-stage">
+            <img src="/assets/img/mechanism-panel-a-820.webp" srcset="/assets/img/mechanism-panel-a-480.webp 480w, /assets/img/mechanism-panel-a-820.webp 820w" sizes="(max-width: 700px) 90vw, 560px" alt="Diagram A: the PirA/PirB toxin complex binding the Lv-APN1 receptor at the cell membrane." width="820" height="1030" class="compare-a" loading="lazy" decoding="async">
+            <img src="/assets/img/mechanism-panel-b-820.webp" srcset="/assets/img/mechanism-panel-b-480.webp 480w, /assets/img/mechanism-panel-b-820.webp 820w" sizes="(max-width: 700px) 90vw, 560px" alt="Diagram B: the designed protein blocker occupying the PirB binding site, preventing the toxin complex from reaching the Lv-APN1 receptor, with a close-up inset of the blocking interaction." width="820" height="1030" class="compare-b" loading="lazy" decoding="async">
+            <div class="compare-handle" aria-hidden="true"><span></span></div>
+            <span class="compare-tag tag-a">A</span><span class="compare-tag tag-b">B</span>
+          </div>
+          <label class="sr-only" for="compareRange">Compare panel A, toxin binding the receptor, with panel B, blocking by the designed protein</label>
+          <input type="range" id="compareRange" class="compare-range" min="0" max="100" value="100" aria-label="Compare panel A, toxin binding the receptor, with panel B, blocking by the designed protein">
+          <div class="compare-legend">
+            <button type="button" data-go="100"><strong>A. PirAB binds the Lv-APN1 receptor</strong></button>
+            <span class="compare-hint">Drag to compare</span>
+            <button type="button" data-go="0"><strong>B. The designed protein blocker prevents receptor binding</strong></button>
+          </div>
         </div>
         <p class="fig-caption">Mechanism of action: the designed protein blocker prevents the toxin complex from binding the cell-surface receptor.</p>
       </div>
@@ -253,9 +287,9 @@ if(want&&want!==here&&!/[?&]stay=1/.test(location.search)){location.replace('/'+
       <p class="section-desc">Knotide Bio was founded by three scientists with complementary academic and industry backgrounds in molecular biology, biochemical engineering and biotechnology.</p>
     </header>
     <dl class="team-stats">
-      <div class="team-stat reveal"><dt>35+</dt><dd>years in antibody-like scaffold discovery</dd></div>
-      <div class="team-stat reveal"><dt>45+</dt><dd>years of combined industry and R&D experience</dd></div>
-      <div class="team-stat reveal"><dt>€40M+</dt><dd>in managed R&D funding</dd></div>
+      <div class="team-stat reveal"><dt><span class="count" data-to="35">35</span>+</dt><dd>years in antibody-like scaffold discovery</dd></div>
+      <div class="team-stat reveal"><dt><span class="count" data-to="45">45</span>+</dt><dd>years of combined industry and R&D experience</dd></div>
+      <div class="team-stat reveal"><dt>€<span class="count" data-to="40">40</span>M+</dt><dd>in managed R&D funding</dd></div>
     </dl>
     <p class="species-label">Our expertise</p>
     <div class="expertise">
@@ -281,6 +315,27 @@ if(want&&want!==here&&!/[?&]stay=1/.test(location.search)){location.replace('/'+
         <p>Knotide Bio is structured to compete for public research and innovation funding and is currently seeking support through programmes such as Portugal 2030, COMPETE, MAR2030 and Horizon Europe. We therefore welcome academic groups, industry players and consortium partners interested in joint applications and co-funded research.</p>
       </div>
       <ul class="funding-list"><li>Portugal 2030 / COMPETE</li><li>MAR2030</li><li>Horizon Europe</li><li>Consortium and co-funded R&D</li></ul>
+    </div>
+    <div class="calls reveal">
+      <div class="calls-head"><p class="label">Calls of interest</p><p class="calls-note">Calls Knotide Bio is interested in taking part in. If your organisation is also looking at any of these calls, get in touch: we are looking for partners to build strong consortia.</p><a href="#contact" class="btn btn-primary btn-sm calls-cta" data-enquiry="Funding or consortium">Propose a partnership</a></div>
+      <div class="calls-ticker" aria-label="Calls of interest">
+        <div class="calls-track">
+          <ul class="calls-list">
+            <li><div><span class="calls-prog">EEA Grants · Blue Growth</span><span class="calls-name">Call 4: Collaborative Blue Research and Innovation for Societal Impact</span></div></li>
+            <li><div><span class="calls-prog">Horizon Europe</span><span class="calls-name">HORIZON-CL6-2027-02-FARM2FORK-03</span></div></li>
+            <li><div><span class="calls-prog">Eurostars-3</span><span class="calls-name">Call 12</span></div></li>
+            <li><div><span class="calls-prog">EUPAHW</span><span class="calls-name">Shaping the Future of Animal Health and Welfare</span></div></li>
+            <li><div><span class="calls-prog">CBE JU</span><span class="calls-name">Circular Bio-based Europe Joint Undertaking, 2027 call</span></div></li>
+          </ul>
+          <ul class="calls-list" aria-hidden="true">
+            <li><div><span class="calls-prog">EEA Grants · Blue Growth</span><span class="calls-name">Call 4: Collaborative Blue Research and Innovation for Societal Impact</span></div></li>
+            <li><div><span class="calls-prog">Horizon Europe</span><span class="calls-name">HORIZON-CL6-2027-02-FARM2FORK-03</span></div></li>
+            <li><div><span class="calls-prog">Eurostars-3</span><span class="calls-name">Call 12</span></div></li>
+            <li><div><span class="calls-prog">EUPAHW</span><span class="calls-name">Shaping the Future of Animal Health and Welfare</span></div></li>
+            <li><div><span class="calls-prog">CBE JU</span><span class="calls-name">Circular Bio-based Europe Joint Undertaking, 2027 call</span></div></li>
+          </ul>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -319,7 +374,7 @@ if(want&&want!==here&&!/[?&]stay=1/.test(location.search)){location.replace('/'+
         <div class="field"><label for="f-country">Country</label><select id="f-country" name="country"><option value="">Select</option><option>Portugal</option><option>Spain</option><option>France</option><option>Germany</option><option>Italy</option><option>Netherlands</option><option>Belgium</option><option>Ireland</option><option>Denmark</option><option>Norway</option><option>United Kingdom</option><option>Other European country</option><option>Brazil</option><option>Chile</option><option>Ecuador</option><option>Mexico</option><option>United States</option><option>Canada</option><option>India</option><option>Vietnam</option><option>Thailand</option><option>Indonesia</option><option>China</option><option>Other</option></select></div>
       </div>
       <div class="row2">
-        <div class="field"><label for="f-type">Type of enquiry</label><select id="f-type" name="enquiry_type"><option value="">Select</option><option>Partnership or collaboration</option><option>Licensing</option><option>Laboratory services</option><option>Research and development</option><option>Funding or consortium</option><option>Media</option><option>Other</option></select></div>
+        <div class="field"><label for="f-type">Type of enquiry</label><select id="f-type" name="enquiry_type"><option value="">Select</option><option>Partnership or collaboration</option><option>Licensing</option><option>Laboratory services</option><option>Research and development</option><option>Funding or consortium</option><option>Investment</option><option>Media</option><option>Other</option></select></div>
         <div class="field"><label for="f-subject">Subject <span class="opt">(optional)</span></label><input id="f-subject" name="subject" maxlength="160"></div>
       </div>
       <fieldset class="field chips"><legend>Areas of interest</legend>
@@ -342,16 +397,20 @@ if(want&&want!==here&&!/[?&]stay=1/.test(location.search)){location.replace('/'+
 </footer>
 <div class="chat" id="chat" data-lang="en" data-privacy="/en/privacy/">
   <button class="fab fab-chat" id="chatOpen" aria-expanded="false" aria-controls="chatPanel">Questions?</button>
-  <section class="chat-panel" id="chatPanel" hidden aria-label="Knotide Bio assistant">
-    <header class="chat-head"><strong>Knotide Bio assistant</strong><button type="button" class="chat-x" id="chatClose" aria-label="Close assistant">×</button></header>
-    <div class="chat-log" id="chatLog" aria-live="polite"><p class="msg bot">Hello. I can answer short questions about Knotide Bio using the information on this website. What would you like to know?</p></div>
-    <div class="chat-suggest" id="chatSuggest"><button type="button">What does Knotide Bio do?</button><button type="button">What is AHPND?</button><button type="button">What services do you offer?</button><button type="button">How can I contact you?</button></div>
-    <form class="chat-form" id="chatForm"><label class="sr-only" for="chatInput">Write your question</label><input id="chatInput" autocomplete="off" placeholder="Write your question"><button class="btn btn-primary btn-sm">Send</button></form>
-    <p class="chat-note">Automatic answers based only on the content of this website.</p>
+  <div class="chat-panel" id="chatPanel" role="dialog" aria-modal="false" aria-labelledby="chatTitle" hidden>
+    <div class="chat-head">
+      <span class="chat-avatar" aria-hidden="true"><img src="/assets/img/logo-mark.webp" alt="" width="28" height="28"></span>
+      <div class="chat-id"><strong id="chatTitle">Knotide Bio assistant</strong><span class="chat-status">Answers based on this website's content</span></div>
+      <button type="button" class="chat-x" id="chatClose" aria-label="Close assistant">×</button>
+    </div>
+    <div class="chat-log" id="chatLog" aria-live="polite"><p class="msg bot">Hello. I'm the Knotide Bio assistant and I answer general questions about the company, our projects and how to work with us. Pick a question or type your own.</p></div>
+    <div class="chat-suggest" id="chatSuggest"><button type="button">What does Knotide Bio do?</button><button type="button">Which projects and programmes are you involved in?</button><button type="button">How can we work together?</button><button type="button">What services do you offer to other companies?</button><button type="button">What stage of development are you at?</button><button type="button">Are you open to investors?</button></div>
+    <form class="chat-form" id="chatForm"><label class="sr-only" for="chatInput">Write your question</label><textarea id="chatInput" rows="2" autocomplete="off" placeholder="Write your question"></textarea><button class="chat-send" aria-label="Send">Send</button></form>
+    <div class="chat-foot"><a href="#contact" class="chat-talk" id="chatTalk">Talk to the team</a><p class="chat-note">Automatic answers based only on the information on this website. For specific questions, please talk to the team.</p></div>
     <template id="chatFallback">I don't have a reliable answer to that on this website. The best option is to write to the team through the <a href="#contact">contact form</a> or at <a href="mailto:info@knotidebio.pt">info@knotidebio.pt</a>.</template>
-  </section>
+  </div>
 </div>
 <div class="cursor-light" aria-hidden="true"><span class="cursor-halo"></span><span class="cursor-dot"></span></div>
-<script src="/assets/js/site.js?v=mwhy58f6" defer></script>
+<script src="/assets/js/site.js?v=mwi0emax" defer></script>
 </body>
 </html>

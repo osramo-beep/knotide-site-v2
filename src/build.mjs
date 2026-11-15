@@ -40,6 +40,40 @@ function img(name, widths, alt, { sizes = '100vw', cls = '', eager = false, w, h
   return `<img src="/assets/img/${name}-${largest}.webp" srcset="${srcset}" sizes="${sizes}" alt="${esc(alt)}"${dims}${cls ? ` class="${cls}"` : ''} ${eager ? 'fetchpriority="high"' : 'loading="lazy"'} decoding="async">`;
 }
 
+// Wrap a figure such as "35+", "€40M+" or "43" so the number can count up on screen.
+function countUp(text) {
+  const m = String(text).match(/^(\D*)(\d+(?:[.,]\d+)?)(.*)$/);
+  if (!m) return text;
+  return `${m[1]}<span class="count" data-to="${m[2].replace(',', '.')}">${m[2]}</span>${m[3]}`;
+}
+
+function dataPanel(d) {
+  if (!d) return '';
+  const bars = d.f2fBars.map((b, i) => `<div class="bar" style="--v:${b.value}"><span class="bar-fill"><span class="bar-note">${b.note}</span></span><span class="bar-year">${b.year}</span></div>`).join('');
+  const marks = d.mortMarkers.map((m) => `<li><strong>${m.day}</strong><span>${m.text}</span></li>`).join('');
+  return `<div class="data-panel reveal" id="dataPanel">
+      <p class="label">${d.label}</p>
+      <div class="data-grid">
+        <div class="data-card data-loss">
+          <p class="data-big">${d.lossPrefix}<span class="count" data-to="${d.lossValue}">${d.lossValue}</span><small>${d.lossUnit}</small></p>
+          <p class="data-text">${d.lossText}</p>
+        </div>
+        <div class="data-card data-mort">
+          <p class="data-title">${d.mortTitle}</p>
+          <div class="mort-track"><span class="mort-fill"></span></div>
+          <div class="mort-ticks" aria-hidden="true"><i style="left:0"></i><i style="left:28.6%"></i><i style="left:85.7%"></i><i style="left:calc(100% - 2px)"></i></div>
+          <ol class="mort-marks">${marks}</ol>
+          <p class="data-text mort-text">${d.mortText || ''}</p>
+        </div>
+        <div class="data-card data-f2f">
+          <p class="data-title">${d.f2fTitle}</p>
+          <div class="bars">${bars}</div>
+        </div>
+      </div>
+      <p class="data-sources">${d.sources}</p>
+    </div>`;
+}
+
 function head(t, lang, page, { title, description, ogTitle, ogDescription, noindex = false }) {
   const other = lang === 'pt' ? 'en' : 'pt';
   const url = S.siteUrl + ROUTES[lang][page];
@@ -114,7 +148,7 @@ function header(t, lang, page) {
   <nav class="nav container" aria-label="${lang === 'pt' ? 'Navegação principal' : 'Main navigation'}">
     <a href="${ROUTES[lang].home}" class="logo" aria-label="Knotide Bio">
       <img src="/assets/img/logo-mark.webp" alt="" width="40" height="40">
-      <span class="logo-word">Knotide<span>Bio</span></span>
+      <span class="logo-word" aria-label="Knotide Bio"><span class="ch" style="--i:0">K</span><span class="ch" style="--i:1">n</span><span class="ch" style="--i:2">o</span><span class="ch" style="--i:3">t</span><span class="ch" style="--i:4">i</span><span class="ch" style="--i:5">d</span><span class="ch" style="--i:6">e</span><span class="bio"><span class="ch" style="--i:7">B</span><span class="ch" style="--i:8">i</span><span class="ch" style="--i:9">o</span></span></span>
     </a>
     <ul class="nav-links" id="navLinks">
       ${links.map((k) => `<li><a href="${h}#${k}">${t.nav[k]}</a></li>`).join('\n      ')}
@@ -149,14 +183,18 @@ function widgets(t, lang) {
   const chat = S.showChatAssistant
     ? `<div class="chat" id="chat" data-lang="${lang}" data-privacy="${ROUTES[lang].privacy}">
   <button class="fab fab-chat" id="chatOpen" aria-expanded="false" aria-controls="chatPanel">${t.widgets.chatOpen}</button>
-  <section class="chat-panel" id="chatPanel" hidden aria-label="${esc(t.widgets.chatTitle)}">
-    <header class="chat-head"><strong>${t.widgets.chatTitle}</strong><button type="button" class="chat-x" id="chatClose" aria-label="${esc(t.widgets.chatClose)}">×</button></header>
+  <div class="chat-panel" id="chatPanel" role="dialog" aria-modal="false" aria-labelledby="chatTitle" hidden>
+    <div class="chat-head">
+      <span class="chat-avatar" aria-hidden="true"><img src="/assets/img/logo-mark.webp" alt="" width="28" height="28"></span>
+      <div class="chat-id"><strong id="chatTitle">${t.widgets.chatTitle}</strong><span class="chat-status">${t.widgets.chatStatus}</span></div>
+      <button type="button" class="chat-x" id="chatClose" aria-label="${esc(t.widgets.chatClose)}">×</button>
+    </div>
     <div class="chat-log" id="chatLog" aria-live="polite"><p class="msg bot">${t.widgets.chatIntro}</p></div>
     <div class="chat-suggest" id="chatSuggest">${t.widgets.chatSuggestions.map((q) => `<button type="button">${esc(q)}</button>`).join('')}</div>
-    <form class="chat-form" id="chatForm"><label class="sr-only" for="chatInput">${t.widgets.chatPlaceholder}</label><input id="chatInput" autocomplete="off" placeholder="${esc(t.widgets.chatPlaceholder)}"><button class="btn btn-primary btn-sm">${t.widgets.chatSend}</button></form>
-    <p class="chat-note">${t.widgets.chatDisclaimer}</p>
+    <form class="chat-form" id="chatForm"><label class="sr-only" for="chatInput">${t.widgets.chatPlaceholder}</label><textarea id="chatInput" rows="2" autocomplete="off" placeholder="${esc(t.widgets.chatPlaceholder)}"></textarea><button class="chat-send" aria-label="${esc(t.widgets.chatSend)}">${t.widgets.chatSend}</button></form>
+    <div class="chat-foot"><a href="#contact" class="chat-talk" id="chatTalk">${t.widgets.chatTalk}</a><p class="chat-note">${t.widgets.chatDisclaimer}</p></div>
     <template id="chatFallback">${t.widgets.chatFallback}</template>
-  </section>
+  </div>
 </div>` : '';
   return waBtn + chat;
 }
@@ -175,6 +213,7 @@ ${header(t, lang, 'home')}
 <div class="dark-stack">
 <div class="glow" aria-hidden="true"></div>
 <section class="hero dark" aria-labelledby="hero-title">
+  <canvas class="hero-net" aria-hidden="true"></canvas>
   <div class="container hero-grid">
     <div class="hero-copy reveal">
       <p class="eyebrow">${t.hero.eyebrow}</p>
@@ -224,6 +263,7 @@ ${header(t, lang, 'home')}
       <strong>${t.challenge.calloutTitle}</strong>
       <p>${t.challenge.callout}</p>
     </aside>
+    ${dataPanel(t.challenge.data)}
   </div>
 </section>
 
@@ -235,7 +275,8 @@ ${header(t, lang, 'home')}
       <h2 id="platform-title">${t.platform.title}</h2>
       <p class="section-desc">${t.platform.desc}</p>
     </header>
-    <ol class="pipeline">
+    <div class="pipeline-track" aria-hidden="true"><span></span></div>
+    <ol class="pipeline" id="pipeline">
       ${t.platform.steps.map((s, i) => `<li class="reveal"><span class="num">${pad(i + 1)}</span><h3>${s.title}</h3><p>${s.text}</p></li>`).join('\n      ')}
     </ol>
     <div class="design-split">
@@ -295,9 +336,20 @@ ${header(t, lang, 'home')}
         <p class="note">${t.applications.exampleNote}</p>
       </div>
       <div class="example-figs reveal">
-        <div class="fig-row">
-          <figure>${img('mechanism-panel-a', [480, 820], t.applications.figAAlt, { sizes: '(max-width: 700px) 46vw, 300px', w: 820, h: 1030 })}<figcaption>${t.applications.figA}</figcaption></figure>
-          <figure>${img('mechanism-panel-b', [480, 820], t.applications.figBAlt, { sizes: '(max-width: 700px) 46vw, 300px', w: 820, h: 1030 })}<figcaption>${t.applications.figB}</figcaption></figure>
+        <div class="compare" id="compare" style="--pos:100%">
+          <div class="compare-stage">
+            ${img('mechanism-panel-a', [480, 820], t.applications.figAAlt, { sizes: '(max-width: 700px) 90vw, 560px', w: 820, h: 1030, cls: 'compare-a' })}
+            ${img('mechanism-panel-b', [480, 820], t.applications.figBAlt, { sizes: '(max-width: 700px) 90vw, 560px', w: 820, h: 1030, cls: 'compare-b' })}
+            <div class="compare-handle" aria-hidden="true"><span></span></div>
+            <span class="compare-tag tag-a">A</span><span class="compare-tag tag-b">B</span>
+          </div>
+          <label class="sr-only" for="compareRange">${t.applications.compare.aria}</label>
+          <input type="range" id="compareRange" class="compare-range" min="0" max="100" value="100" aria-label="${esc(t.applications.compare.aria)}">
+          <div class="compare-legend">
+            <button type="button" data-go="100"><strong>${t.applications.figA}</strong></button>
+            <span class="compare-hint">${t.applications.compare.hint}</span>
+            <button type="button" data-go="0"><strong>${t.applications.figB}</strong></button>
+          </div>
         </div>
         <p class="fig-caption">${t.applications.figCaption}</p>
       </div>
@@ -340,7 +392,7 @@ ${header(t, lang, 'home')}
       <p class="section-desc">${t.team.desc}</p>
     </header>
     <dl class="team-stats">
-      ${t.team.stats.map((s) => `<div class="team-stat reveal"><dt>${s.num}</dt><dd>${s.label}</dd></div>`).join('\n      ')}
+      ${t.team.stats.map((s) => `<div class="team-stat reveal"><dt>${countUp(s.num)}</dt><dd>${s.label}</dd></div>`).join('\n      ')}
     </dl>
     <p class="species-label">${t.team.expertiseLabel}</p>
     <div class="expertise">
@@ -363,6 +415,16 @@ ${header(t, lang, 'home')}
         <p>${t.funding.text}</p>
       </div>
       <ul class="funding-list">${t.funding.list.map((x) => `<li>${x}</li>`).join('')}</ul>
+    </div>
+    <div class="calls reveal">
+      <div class="calls-head"><p class="label">${t.funding.calls.label}</p><p class="calls-note">${t.funding.calls.note}</p><a href="#contact" class="btn btn-primary btn-sm calls-cta" data-enquiry="${esc(t.form.enquiryTypes[4])}">${t.funding.calls.cta}</a></div>
+      <div class="calls-ticker" aria-label="${esc(t.funding.calls.label)}">
+        <div class="calls-track">
+          ${[0, 1].map((k) => `<ul class="calls-list"${k ? ' aria-hidden="true"' : ''}>
+            ${t.funding.calls.items.map((c) => `<li>${c.url ? `<a href="${esc(c.url)}" target="_blank" rel="noopener"${k ? ' tabindex="-1"' : ''}>` : '<div>'}<span class="calls-prog">${c.programme}</span><span class="calls-name">${c.name}</span>${c.url ? '</a>' : '</div>'}</li>`).join('\n            ')}
+          </ul>`).join('\n          ')}
+        </div>
+      </div>
     </div>
   </div>
 </section>
