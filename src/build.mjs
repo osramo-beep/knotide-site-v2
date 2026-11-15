@@ -173,7 +173,7 @@ ${header(t, lang, 'home')}
 <main id="main">
 
 <section class="hero dark" aria-labelledby="hero-title">
-  <div class="mesh" aria-hidden="true"></div>
+  <div class="glow" aria-hidden="true"></div>
   <div class="container hero-grid">
     <div class="hero-copy reveal">
       <p class="eyebrow">${t.hero.eyebrow}</p>
@@ -188,6 +188,9 @@ ${header(t, lang, 'home')}
       <div class="frame-glow">${img('hero-art', [526], '', { sizes: '(max-width: 900px) 80vw, 460px', eager: true, w: 526, h: 576 })}</div>
     </div>
   </div>
+</section>
+
+<section class="stats-band dark" aria-label="${lang === 'pt' ? 'Indicadores' : 'Highlights'}">
   <div class="container">
     <dl class="stats">
       ${t.stats.map((s) => `<div class="stat reveal"><dt>${s.num}</dt><dd>${s.label}</dd></div>`).join('\n      ')}
@@ -195,29 +198,35 @@ ${header(t, lang, 'home')}
   </div>
 </section>
 
-<section class="photo-band" aria-label="${esc(t.photoBand.caption)}">
-  <div class="photo-band-media photo-cool">${img('researcher-handling-a-sample-in-the-laboratory', [900, 1600], t.photoBand.alt, { w: 1600, h: 1067 })}</div>
-  <div class="photo-band-caption"><div class="container"><p>${t.photoBand.caption}</p></div></div>
+<section class="photo-band band-abyss" aria-label="${esc(t.photoBand.caption)}">
+  <div class="container">
+    <figure class="band-frame band-pipette reveal">
+      ${img('lab-pipetting-sample', [800, 1584], t.photoBand.alt, { sizes: '(max-width: 1260px) 100vw, 1200px', w: 1584, h: 672 })}
+      <figcaption>${t.photoBand.caption}</figcaption>
+    </figure>
+  </div>
 </section>
 
 <section class="light challenge" aria-labelledby="challenge-title">
-  <div class="container split">
-    <div class="reveal">
-      <p class="label">${t.challenge.label}</p>
-      <h2 id="challenge-title">${t.challenge.title}</h2>
-      <p>${t.challenge.p1}</p>
-      <p>${t.challenge.p2}</p>
-      <aside class="callout">
-        <strong>${t.challenge.calloutTitle}</strong>
-        <p>${t.challenge.callout}</p>
-      </aside>
+  <div class="container">
+    <div class="split split-challenge">
+      <div class="reveal">
+        <p class="label">${t.challenge.label}</p>
+        <h2 id="challenge-title">${t.challenge.title}</h2>
+        <p>${t.challenge.p1}</p>
+        <p>${t.challenge.p2}</p>
+      </div>
+      <figure class="media-card media-fill photo-cool reveal">${img('indoor-shrimp-aquaculture-facility', [640, 1000], t.challenge.imageAlt, { sizes: '(max-width: 900px) 100vw, 560px', w: 1000, h: 750 })}</figure>
     </div>
-    <figure class="media-card photo-cool reveal">${img('indoor-shrimp-aquaculture-facility', [640, 1000], t.challenge.imageAlt, { sizes: '(max-width: 900px) 100vw, 520px', w: 1000, h: 750 })}</figure>
+    <aside class="callout callout-wide reveal">
+      <strong>${t.challenge.calloutTitle}</strong>
+      <p>${t.challenge.callout}</p>
+    </aside>
   </div>
 </section>
 
 <section id="platform" class="dark platform" aria-labelledby="platform-title">
-  <div class="mesh mesh-soft" aria-hidden="true"></div>
+  <div class="glow glow-soft" aria-hidden="true"></div>
   <div class="container">
     <header class="section-head reveal">
       <p class="label">${t.platform.label}</p>
@@ -237,7 +246,7 @@ ${header(t, lang, 'home')}
       </div>
       <figure class="viewer reveal" id="viewer" data-frames="48" data-pause="${esc(t.viewer.pause)}" data-resume="${esc(t.viewer.resume)}">
         <div class="viewer-stage">
-          <img class="viewer-poster" src="/assets/img/molecule/m00.webp" alt="" width="520" height="520" loading="lazy">
+          <img class="viewer-poster" src="/assets/img/molecule/m00.webp" alt="" width="760" height="760" loading="lazy">
           <canvas role="img" aria-label="${esc(t.viewer.aria)}"></canvas>
           <div class="viewer-legend"><span><i class="dot dot-toxin"></i>${t.viewer.toxin}</span><span><i class="dot dot-protein"></i>${t.viewer.protein}</span></div>
         </div>
@@ -253,9 +262,13 @@ ${header(t, lang, 'home')}
   </div>
 </section>
 
-<section class="photo-band photo-band-dna" aria-label="${esc(t.dnaBand.caption)}">
-  <div class="photo-band-media">${img('molecular-research-antibody-and-dna-engineering', [800, 1264], t.dnaBand.alt, { w: 1264, h: 848 })}</div>
-  <div class="photo-band-caption"><div class="container"><p>${t.dnaBand.caption}</p></div></div>
+<section class="photo-band band-navy" aria-label="${esc(t.dnaBand.caption)}">
+  <div class="container">
+    <figure class="band-frame band-dna reveal">
+      ${img('molecular-research-antibody-and-dna-engineering', [800, 1264], t.dnaBand.alt, { sizes: '(max-width: 1260px) 100vw, 1200px', w: 1264, h: 848 })}
+      <figcaption>${t.dnaBand.caption}</figcaption>
+    </figure>
+  </div>
 </section>
 
 <section id="applications" class="light" aria-labelledby="applications-title">
@@ -304,7 +317,7 @@ ${header(t, lang, 'home')}
 </section>
 
 <section id="services" class="dark" aria-labelledby="services-title">
-  <div class="mesh mesh-soft" aria-hidden="true"></div>
+  <div class="glow glow-soft" aria-hidden="true"></div>
   <div class="container">
     <header class="section-head reveal">
       <p class="label">${t.services.label}</p>
@@ -353,7 +366,7 @@ ${header(t, lang, 'home')}
 </section>
 
 <section id="contact" class="dark contact" aria-labelledby="contact-title">
-  <div class="mesh mesh-soft" aria-hidden="true"></div>
+  <div class="glow glow-soft" aria-hidden="true"></div>
   <div class="container contact-grid">
     <div class="contact-info reveal">
       <p class="label">${t.contact.label}</p>
@@ -403,6 +416,7 @@ ${header(t, lang, 'home')}
 </main>
 ${footer(t, lang)}
 ${widgets(t, lang)}
+<div class="cursor-light" aria-hidden="true"><span class="cursor-halo"></span><span class="cursor-dot"></span></div>
 <script src="/assets/js/site.js?v=${VERSION}" defer></script>
 </body>
 </html>`;
@@ -422,6 +436,7 @@ ${header(t, lang, 'privacy')}
   ${p.sections.map((s) => `<h2>${s.title}</h2>\n  ${s.body}`).join('\n  ')}
 </main>
 ${footer(t, lang)}
+<div class="cursor-light" aria-hidden="true"><span class="cursor-halo"></span><span class="cursor-dot"></span></div>
 <script src="/assets/js/site.js?v=${VERSION}" defer></script>
 </body>
 </html>`;
