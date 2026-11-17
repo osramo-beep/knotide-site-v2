@@ -145,11 +145,19 @@ section { position: relative; padding: clamp(72px, 10vw, 128px) 0; }
 .band-frame { position: relative; margin: 0 auto; max-width: 1200px; border-radius: 28px; overflow: hidden; border: 1px solid var(--line-dark); box-shadow: 0 40px 90px -40px rgba(0, 224, 199, .35); }
 .band-frame img { width: 100%; height: 100%; object-fit: cover; }
 .band-pipette { aspect-ratio: 1584 / 672; }
-.band-dna { aspect-ratio: 21 / 9; }
-.band-dna img { object-position: center 42%; }
+.band-dna { aspect-ratio: 1584 / 672; }
+.band-dna img { object-position: center center; }
+/* DNA band: caption sits in the calm, dark area on the left, never over the helix */
+.band-dna::after { background: linear-gradient(90deg, rgba(6,11,24,.82) 0%, rgba(6,11,24,.55) 22%, rgba(6,11,24,0) 42%); }
+.band-dna figcaption { top: clamp(22px, 6%, 56px); bottom: auto; left: clamp(20px, 4vw, 48px); right: auto; max-width: 30%;
+  font-size: clamp(1rem, 1.9vw, 1.55rem); line-height: 1.25; text-wrap: balance; }
+.band-dna figcaption::before { content: ""; display: block; width: 34px; height: 2px; margin-bottom: 12px; border-radius: 2px; background: var(--grad); }
 .band-frame::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(6,11,24,0) 45%, rgba(6,11,24,.72) 100%); pointer-events: none; }
 .band-frame figcaption { position: absolute; left: clamp(20px, 4vw, 44px); right: 20px; bottom: clamp(18px, 3.5vw, 36px); z-index: 2; margin: 0; font: 600 clamp(1.25rem, 2.6vw, 2rem)/1.2 var(--head); color: #fff; letter-spacing: -0.02em; text-shadow: 0 2px 18px rgba(0,0,0,.4); }
-@media (max-width: 640px) { .band-pipette, .band-dna { aspect-ratio: 4 / 3; } .band-frame { border-radius: 20px; } }
+@media (max-width: 640px) { .band-pipette { aspect-ratio: 4 / 3; } .band-frame { border-radius: 20px; }
+  .band-dna { aspect-ratio: 4 / 3; } .band-dna img { object-position: 22% center; }
+  .band-dna::after { background: linear-gradient(180deg, rgba(6,11,24,.8) 0%, rgba(6,11,24,0) 40%); }
+  .band-dna figcaption { max-width: 48%; top: 18px; font-size: 1rem; } }
 
 /* Cool colour grade for photographs (not applied to scientific diagrams) */
 .photo-cool { position: relative; }
@@ -221,7 +229,10 @@ section { position: relative; padding: clamp(72px, 10vw, 128px) 0; }
 .species-photo { aspect-ratio: 1; border-radius: var(--radius); overflow: hidden; }
 .species-photo img { width: 100%; height: 100%; object-fit: cover; transition: transform .5s ease; }
 .species-grid li:hover img { transform: scale(1.04); }
-.species-grid figcaption { margin-top: 12px; font: 600 1rem/1.2 var(--head); color: var(--ink); text-align: center; }
+.species-grid figcaption { margin-top: 12px; font: 600 1rem/1.2 var(--head); color: var(--ink); text-align: center; transition: transform .3s cubic-bezier(.2,.7,.2,1), color .3s ease, letter-spacing .3s ease; }
+.species-grid li:hover figcaption { transform: scale(1.12); color: #0E7490; letter-spacing: .01em; }
+.species-photo { transition: box-shadow .3s ease; }
+.species-grid li:hover .species-photo { box-shadow: 0 0 0 2px #1CD5E7, 0 18px 36px -20px rgba(28,213,231,.6); }
 @media (max-width: 900px) { .species-grid { grid-template-columns: repeat(3, 1fr); } }
 @media (max-width: 560px) { .species-grid { grid-template-columns: 1fr 1fr; } }
 

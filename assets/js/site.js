@@ -49,32 +49,34 @@
      rotation is continuous instead of jumping frame to frame. */
   var viewer = document.getElementById('viewer');
   if (viewer) (function () {
-    var N = parseInt(viewer.dataset.frames, 10) || 48;
+    var N = parseInt(viewer.dataset.frames, 10) || 144;
     var stage = viewer.querySelector('.viewer-stage');
     var canvas = viewer.querySelector('canvas');
     var ctx = canvas.getContext('2d');
     var btnToggle = viewer.querySelector('[data-act="toggle"]');
-    var frames = new Array(N), loaded = 0, started = false;
+    var frames = new Array(N), loaded = 0, started = false, allReady = false;
     var pos = 0, zoom = 1, targetZoom = 1;
-    var SPEED = N / 22;            // one full revolution every 22 s
+    var SPEED = N / 16;            // one full revolution every 16 s
     var playing = !reduceMotion, userPaused = reduceMotion, visible = false;
     var dragging = false, lastX = 0, velocity = 0, resumeTimer = null, last = 0, raf = 0;
 
-    function src(i) { return BASE + '/assets/img/molecule/m' + (i < 10 ? '0' : '') + i + '.webp'; }
-    function ok(img) { return img && img.complete && img.naturalWidth > 0; }
+    function src(i) { return BASE + '/assets/img/molecule/m' + ('00' + i).slice(-3) + '.webp'; }
 
+    // Load and pre-decode every frame before rotating, so drawing never waits on image decoding.
     function load() {
       if (started) return; started = true;
-      // Load every 4th frame first so rotation can start quickly, then fill the gaps.
-      var order = [];
-      for (var s = 0; s < 4; s++) for (var i = s; i < N; i += 4) order.push(i);
-      order.forEach(function (i) {
-        var im = new Image(); im.decoding = 'async';
-        im.onload = function () { loaded++; if (i === 0) { resize(); viewer.classList.add('ready'); } };
-        im.src = src(i); frames[i] = im;
-      });
+      for (var i = 0; i < N; i++) (function (i) {
+        var im = new Image(); im.decoding = 'async'; im.src = src(i);
+        var done = function (bmp) {
+          frames[i] = bmp || im; loaded++;
+          if (i === 0) { resize(); viewer.classList.add('ready'); }
+          if (loaded === N) { allReady = true; kick(); }
+        };
+        (im.decode ? im.decode() : Promise.resolve())
+          .then(function () { return window.createImageBitmap ? createImageBitmap(im) : null; })
+          .then(done, function () { done(null); });
+      })(i);
     }
-    function nearest(i, dir) { for (var k = 0; k < N; k++) { var j = ((i + dir * k) % N + N) % N; if (ok(frames[j])) return j; } return -1; }
 
     function resize() {
       var r = stage.getBoundingClientRect(), dpr = Math.min(window.devicePixelRatio || 1, 2);
@@ -86,22 +88,20 @@
       ctx.globalAlpha = alpha; ctx.drawImage(img, (cw - s) / 2, (ch - s) / 2, s, s);
     }
     function draw() {
-      if (!canvas.width) return;
+      if (!canvas.width || !frames[0]) return;
       ctx.clearRect(0, 0, canvas.width, canvas.height);
+      if (!allReady) { blit(frames[0], 1); ctx.globalAlpha = 1; return; }
       var p = ((pos % N) + N) % N, i0 = Math.floor(p), f = p - i0, i1 = (i0 + 1) % N;
-      var a = ok(frames[i0]) ? i0 : nearest(i0, -1), b = ok(frames[i1]) ? i1 : nearest(i1, 1);
-      if (a < 0) return;
-      // Short cross-fade only at the end of each step: the molecule stays sharp
-      // most of the time, while the change of angle still looks continuous.
-      var k = Math.min(1, Math.max(0, (f - 0.55) / 0.45)); k = k * k * (3 - 2 * k);
-      blit(frames[a], 1);
-      if (b >= 0 && b !== a && k > 0.001) blit(frames[b], k);
+      // 144 real angles: each one is shown sharp, with only a very short blend into the next
+      var k = Math.min(1, Math.max(0, (f - 0.75) / 0.25));
+      blit(frames[i0], 1);
+      if (k > 0.002) blit(frames[i1], k);
       ctx.globalAlpha = 1;
     }
     function tick(t) {
       raf = 0;
       var dt = last ? Math.min((t - last) / 1000, 0.05) : 0; last = t;
-      if (!dragging) {
+      if (!dragging && allReady) {
         if (playing) pos += SPEED * dt;
         if (Math.abs(velocity) > 0.01) { pos += velocity * dt; velocity *= Math.pow(0.04, dt); } else velocity = 0;
       }
@@ -127,7 +127,7 @@
     stage.addEventListener('pointermove', function (e) {
       if (!dragging) return;
       var dx = e.clientX - lastX; lastX = e.clientX;
-      var step = dx / (stage.clientWidth / 24);   // dragging across half the stage = half a turn
+      var step = dx / (stage.clientWidth / 72);
       pos += step; velocity = step * 60;
     });
     function endDrag() {
@@ -152,7 +152,7 @@
       new IntersectionObserver(function (en) {
         visible = en[0].isIntersecting;
         if (visible) { load(); kick(); }
-      }, { rootMargin: '300px 0px' }).observe(viewer);
+      }, { rootMargin: '400px 0px' }).observe(viewer);
     } else { visible = true; load(); kick(); }
     btnToggle.textContent = userPaused ? viewer.dataset.resume : viewer.dataset.pause;
   })();
