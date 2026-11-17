@@ -148,13 +148,16 @@ section { position: relative; padding: clamp(72px, 10vw, 128px) 0; }
 .band-dna { aspect-ratio: 1584 / 672; }
 .band-dna img { object-position: center center; }
 /* DNA band: caption sits in the calm, dark area on the left, never over the helix */
-.band-dna::after { background: linear-gradient(90deg, rgba(6,11,24,.82) 0%, rgba(6,11,24,.55) 22%, rgba(6,11,24,0) 42%); }
-.band-dna figcaption { top: clamp(22px, 6%, 56px); bottom: auto; left: clamp(20px, 4vw, 48px); right: auto; max-width: 30%;
+.band-dna::after, .band-pipette::after { background: linear-gradient(90deg, rgba(6,11,24,.82) 0%, rgba(6,11,24,.55) 22%, rgba(6,11,24,0) 42%); }
+.band-dna figcaption, .band-pipette figcaption { top: clamp(22px, 6%, 56px); bottom: auto; left: clamp(20px, 4vw, 48px); right: auto; max-width: 30%;
   font-size: clamp(1rem, 1.9vw, 1.55rem); line-height: 1.25; text-wrap: balance; }
-.band-dna figcaption::before { content: ""; display: block; width: 34px; height: 2px; margin-bottom: 12px; border-radius: 2px; background: var(--grad); }
+.band-dna figcaption::before, .band-pipette figcaption::before { content: ""; display: block; width: 34px; height: 2px; margin-bottom: 12px; border-radius: 2px; background: var(--grad); }
 .band-frame::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(6,11,24,0) 45%, rgba(6,11,24,.72) 100%); pointer-events: none; }
 .band-frame figcaption { position: absolute; left: clamp(20px, 4vw, 44px); right: 20px; bottom: clamp(18px, 3.5vw, 36px); z-index: 2; margin: 0; font: 600 clamp(1.25rem, 2.6vw, 2rem)/1.2 var(--head); color: #fff; letter-spacing: -0.02em; text-shadow: 0 2px 18px rgba(0,0,0,.4); }
 @media (max-width: 640px) { .band-pipette { aspect-ratio: 4 / 3; } .band-frame { border-radius: 20px; }
+  .band-pipette img { object-position: 70% center; }
+  .band-pipette::after { background: linear-gradient(180deg, rgba(6,11,24,.8) 0%, rgba(6,11,24,0) 40%); }
+  .band-pipette figcaption { max-width: 60%; top: 18px; font-size: 1rem; }
   .band-dna { aspect-ratio: 4 / 3; } .band-dna img { object-position: 22% center; }
   .band-dna::after { background: linear-gradient(180deg, rgba(6,11,24,.8) 0%, rgba(6,11,24,0) 40%); }
   .band-dna figcaption { max-width: 48%; top: 18px; font-size: 1rem; } }
@@ -584,3 +587,20 @@ section { position: relative; padding: clamp(72px, 10vw, 128px) 0; }
 
 .calls-cta { justify-self: end; }
 @media (max-width: 760px) { .calls-cta { justify-self: start; } }
+
+/* ---------- Hero DNA image grows slightly on hover ---------- */
+.frame-glow img { transition: transform .8s cubic-bezier(.2,.7,.2,1); }
+.frame-glow:hover img { transform: scale(1.07); }
+.frame-glow { transition: box-shadow .5s ease; }
+.frame-glow:hover { box-shadow: 0 0 0 1px rgba(34, 211, 238, .25), 0 40px 100px -30px rgba(0, 224, 199, .6); }
+
+/* ---------- DNA band: red strands glow as the section approaches the centre of the screen ---------- */
+.dna-glow { position: absolute; inset: 0; pointer-events: none; z-index: 1; }
+.dna-glow img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: inherit; }
+.band-dna .dna-glow img { object-position: center center; }
+.dna-halo { opacity: calc(var(--glow, 0) * .9); mix-blend-mode: screen; }
+.dna-red { opacity: var(--glow, 0); mix-blend-mode: screen; filter: saturate(1.25); }
+.band-dna figcaption { z-index: 3; }
+@media (max-width: 640px) { .band-dna .dna-glow img { object-position: 22% center; } }
+.band-pipette figcaption { max-width: 38%; }
+@media (max-width: 640px) { .band-pipette figcaption { max-width: 60%; } }

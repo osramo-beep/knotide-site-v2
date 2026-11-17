@@ -301,6 +301,21 @@
     size(); kick();
   })();
 
+  /* ---------- DNA band: red glow follows scroll proximity ---------- */
+  var dnaBand = document.getElementById('dnaBand');
+  if (dnaBand) (function () {
+    var ticking = false;
+    function update() {
+      ticking = false;
+      var r = dnaBand.getBoundingClientRect(), vh = window.innerHeight;
+      var centre = r.top + r.height / 2, dist = Math.abs(centre - vh / 2) / (vh / 2 + r.height / 2);
+      var g = Math.max(0, 1 - dist * 1.25); g = g * g * (3 - 2 * g);
+      dnaBand.style.setProperty('--glow', g.toFixed(3));
+    }
+    window.addEventListener('scroll', function () { if (!ticking) { ticking = true; requestAnimationFrame(update); } }, { passive: true });
+    window.addEventListener('resize', update); update();
+  })();
+
   /* ---------- Map (click to load, keeps the site cookie-free by default) ---------- */
   var mapBtn = document.getElementById('mapLoad');
   if (mapBtn) mapBtn.addEventListener('click', function () {

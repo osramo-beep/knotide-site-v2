@@ -307,8 +307,9 @@ ${header(t, lang, 'home')}
 
 <section class="photo-band band-navy" aria-label="${esc(t.dnaBand.caption)}">
   <div class="container">
-    <figure class="band-frame band-dna reveal">
+    <figure class="band-frame band-dna reveal" id="dnaBand">
       ${img('dna-helix-lab', [800, 1584], t.dnaBand.alt, { sizes: '(max-width: 1260px) 100vw, 1200px', w: 1584, h: 672 })}
+      <span class="dna-glow" aria-hidden="true">${img('dna-helix-lab-halo', [800, 1584], '', { sizes: '(max-width: 1260px) 100vw, 1200px', w: 1584, h: 672, cls: 'dna-halo' })}${img('dna-helix-lab-red', [800, 1584], '', { sizes: '(max-width: 1260px) 100vw, 1200px', w: 1584, h: 672, cls: 'dna-red' })}</span>
       <figcaption>${t.dnaBand.caption}</figcaption>
     </figure>
   </div>
