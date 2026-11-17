@@ -125,9 +125,9 @@
     "productionP2": "This manufacturing approach is intended to enable scalable, consistent and cost-effective production and, in turn, to support applications where price is critical, such as aquaculture and livestock health."
   },
   "viewer": {
-    "aria": "Interactive rotating 3D model of a designed protein bound to a specific site on a toxin complex",
+    "aria": "Interactive rotating 3D model of a blocker protein bound to a specific site on a toxin complex",
     "toxin": "Toxin",
-    "protein": "Designed protein",
+    "protein": "Blocker protein",
     "pause": "Pause rotation",
     "resume": "Resume rotation",
     "reset": "Reset view",
@@ -136,7 +136,7 @@
     "caption": "Illustrative structural rendering, conceptual and not experimental data. Drag to rotate."
   },
   "dnaBand": {
-    "alt": "Molecular research: antibody and DNA engineering",
+    "alt": "Gloved hands handling a DNA double helix in the laboratory",
     "caption": "Engineering biology at the molecular level."
   },
   "applications": {

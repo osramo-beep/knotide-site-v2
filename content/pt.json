@@ -125,9 +125,9 @@
     "productionP2": "Esta abordagem de produção pretende assegurar um fabrico escalável, consistente e economicamente eficiente e, desse modo, servir aplicações em que o preço é determinante, como a aquacultura e a saúde dos animais de produção."
   },
   "viewer": {
-    "aria": "Modelo 3D interativo em rotação de uma proteína desenhada ligada a um local específico de um complexo de toxinas",
+    "aria": "Modelo 3D interativo em rotação de uma proteína bloqueadora ligada a um local específico de um complexo de toxinas",
     "toxin": "Toxina",
-    "protein": "Proteína desenhada",
+    "protein": "Proteína bloqueadora",
     "pause": "Pausar rotação",
     "resume": "Retomar rotação",
     "reset": "Repor vista",
@@ -136,7 +136,7 @@
     "caption": "Representação estrutural ilustrativa, de natureza conceptual e sem base em dados experimentais. Arraste para rodar."
   },
   "dnaBand": {
-    "alt": "Investigação molecular: engenharia de anticorpos e de ADN",
+    "alt": "Mãos com luvas de laboratório a manipular uma dupla hélice de ADN",
     "caption": "Engenharia biológica à escala molecular."
   },
   "applications": {

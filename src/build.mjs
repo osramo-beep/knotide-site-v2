@@ -287,9 +287,9 @@ ${header(t, lang, 'home')}
         <p>${t.platform.productionP1}</p>
         <p>${t.platform.productionP2}</p>
       </div>
-      <figure class="viewer reveal" id="viewer" data-frames="48" data-pause="${esc(t.viewer.pause)}" data-resume="${esc(t.viewer.resume)}">
+      <figure class="viewer reveal" id="viewer" data-frames="144" data-pause="${esc(t.viewer.pause)}" data-resume="${esc(t.viewer.resume)}">
         <div class="viewer-stage">
-          <img class="viewer-poster" src="/assets/img/molecule/m00.webp" alt="" width="760" height="760" loading="lazy">
+          <img class="viewer-poster" src="/assets/img/molecule/m000.webp" alt="" width="640" height="640" loading="lazy">
           <canvas role="img" aria-label="${esc(t.viewer.aria)}"></canvas>
           <div class="viewer-legend"><span><i class="dot dot-toxin"></i>${t.viewer.toxin}</span><span><i class="dot dot-protein"></i>${t.viewer.protein}</span></div>
         </div>
@@ -308,7 +308,7 @@ ${header(t, lang, 'home')}
 <section class="photo-band band-navy" aria-label="${esc(t.dnaBand.caption)}">
   <div class="container">
     <figure class="band-frame band-dna reveal">
-      ${img('molecular-research-antibody-and-dna-engineering', [800, 1264], t.dnaBand.alt, { sizes: '(max-width: 1260px) 100vw, 1200px', w: 1264, h: 848 })}
+      ${img('dna-helix-lab', [800, 1584], t.dnaBand.alt, { sizes: '(max-width: 1260px) 100vw, 1200px', w: 1584, h: 672 })}
       <figcaption>${t.dnaBand.caption}</figcaption>
     </figure>
   </div>
